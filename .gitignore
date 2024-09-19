@@ -3,6 +3,7 @@
 cmake-*
 .DS_Store
 build
+-DPICO_PLATFORM=rp2350-riscv/
 
 # Format documentation: https://kicad.org/help/file-formats/
 
