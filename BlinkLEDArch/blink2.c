@@ -5,23 +5,49 @@
  */
 
 #include "pico/stdlib.h"
+#include "hardware/structs/pio.h"
+
+
+#define ARCHSEL_STATUS 0x15c
+
 
 int main() {
+
+    //Check the architecture of the RP2350
+    uint32_t archReg = *(volatile uint32_t *)(OTP_BASE + ARCHSEL_STATUS);
+    bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
+
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     while (true) {
-        gpio_put(LED_PIN, 1);
-        sleep_ms(100);
-        gpio_put(LED_PIN, 0);
-        sleep_ms(100);
-        gpio_put(LED_PIN, 1); //Modified by Seyha and Robbie on 8/29/23
-        sleep_ms(100);
-        gpio_put(LED_PIN, 0);
-        sleep_ms(100);
-        gpio_put(LED_PIN, 1);
-        sleep_ms(100);
-        gpio_put(LED_PIN, 0);
-        sleep_ms(250);
+
+        if(!arch){ //arm
+            gpio_put(LED_PIN, 1);
+            sleep_ms(1000);
+            gpio_put(LED_PIN, 0);
+            sleep_ms(1000);
+            gpio_put(LED_PIN, 1);
+            sleep_ms(1000);
+            gpio_put(LED_PIN, 0);
+            sleep_ms(1000);
+            gpio_put(LED_PIN, 1);
+            sleep_ms(1000);
+            gpio_put(LED_PIN, 0);
+            sleep_ms(2500);
+        } else { //risc-v
+            gpio_put(LED_PIN, 1);
+            sleep_ms(100);
+            gpio_put(LED_PIN, 0);
+            sleep_ms(100);
+            gpio_put(LED_PIN, 1);
+            sleep_ms(100);
+            gpio_put(LED_PIN, 0);
+            sleep_ms(100);
+            gpio_put(LED_PIN, 1);
+            sleep_ms(100);
+            gpio_put(LED_PIN, 0);
+            sleep_ms(250);
+        }
     }
 }
