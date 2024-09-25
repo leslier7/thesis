@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 set(NAME blink2)
 set(PICO_BOARD pico2)
-set(PICO_PLATFORM rp2350)
+#set(PICO_PLATFORM rp2350)
 
 
 include(pico_sdk_import.cmake)

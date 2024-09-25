@@ -4,6 +4,7 @@ cmake-*
 .DS_Store
 build
 -DPICO_PLATFORM=rp2350-riscv/
+launch.json
 
 # Format documentation: https://kicad.org/help/file-formats/
 
