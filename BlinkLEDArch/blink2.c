@@ -6,7 +6,7 @@
 
 #include "pico/stdlib.h"
 #include "hardware/structs/pio.h"
-
+#include "hardware/structs/otp.h"
 
 #define ARCHSEL_STATUS 0x15c
 
@@ -14,7 +14,8 @@
 int main() {
 
     //Check the architecture of the RP2350
-    uint32_t archReg = *(volatile uint32_t *)(OTP_BASE + ARCHSEL_STATUS);
+    //uint32_t archReg = *(volatile uint32_t *)(OTP_BASE + ARCHSEL_STATUS);
+    uint32_t archReg = otp_hw->archsel_status;
     bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
 
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
