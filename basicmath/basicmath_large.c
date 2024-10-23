@@ -1,6 +1,7 @@
 #include "snipmath.h"
 #include <math.h>
 #include "stdio.h"
+#include "hardware/structs/otp.h"
 #include "pico/stdlib.h"
 
 /* The printf's may be removed to isolate just the math calculations */
@@ -16,6 +17,17 @@ int main(void) {
     unsigned long l = 0x3fed0169L;
     struct int_sqrt q;
     long n = 0;
+
+    uint32_t archReg = otp_hw->archsel_status;
+    bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
+
+    const uint LED_PIN = PICO_DEFAULT_LED_PIN;
+    gpio_init(LED_PIN);
+    gpio_set_dir(LED_PIN, GPIO_OUT);
+
+    if(arch){
+        gpio_put(LED_PIN, 1);
+    }
 
     uint64_t startTime = time_us_64();
     uint64_t endTime;
