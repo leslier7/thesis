@@ -25,6 +25,7 @@ add_executable(bitcnts_small
         conio.h
         extkword.h
         sniptype.h
+        powman_example.c
         )
 
 add_executable(bitcnts_large
@@ -41,11 +42,12 @@ add_executable(bitcnts_large
         conio.h
         extkword.h
         sniptype.h
+        powman_example.c
 )
 
 # pull in common dependencies
-target_link_libraries(bitcnts_small pico_stdlib hardware_structs pico_bootsel_via_double_reset)
-target_link_libraries(bitcnts_large pico_stdlib hardware_structs pico_bootsel_via_double_reset)
+target_link_libraries(bitcnts_small pico_stdlib hardware_powman hardware_structs pico_bootsel_via_double_reset)
+target_link_libraries(bitcnts_large pico_stdlib hardware_powman hardware_structs pico_bootsel_via_double_reset)
 
 # create map/bin/hex file etc.
 pico_add_extra_outputs(bitcnts_small)

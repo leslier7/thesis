@@ -16,6 +16,7 @@
 #include "pico/stdlib.h"
 #include "hardware/structs/pio.h"
 #include "hardware/structs/otp.h"
+#include "powman_example.h"
 
 
 #define FUNCS  7
@@ -97,7 +98,10 @@ int main(void) {
   }
   printf("\nBest  > %s\n", text[cminix]);
   printf("Worst > %s\n", text[cmaxix]);
-  return 0;
+
+    //Turning the PICO off (pin will never go HI)
+    gpio_put(LED_PIN, 0);
+    powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
 }
 
 static int bit_shifter(long int x)

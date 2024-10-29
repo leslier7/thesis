@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "hardware/structs/otp.h"
 #include "pico/stdlib.h"
+#include "powman_example.h"
 
 /* The printf's may be removed to isolate just the math calculations */
 
@@ -100,5 +101,5 @@ int main(void) {
 
     printf("Time taken: %lld us\n", endTime - startTime);
 
-    return 0;
+    powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
 }

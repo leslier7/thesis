@@ -16,13 +16,14 @@
 #include "pico/stdlib.h"
 #include "hardware/structs/pio.h"
 #include "hardware/structs/otp.h"
+#include "powman_example.h"
+
 
 #define FUNCS  7
 
 static int bit_shifter(long int x);
 
-int main(void)
-{
+int main(void) {
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
@@ -71,15 +72,15 @@ int main(void)
     exit(-1);
 	}
   iterations=atoi(argv);
-  
+
   puts("Bit counter algorithm benchmark\n");
-  
+
   for (i = 0; i < FUNCS; i++) {
     start = time_us_64();
-    
+
     for (j = n = 0, seed = rand(); j < iterations; j++, seed += 13)
 	 n += pBitCntFunc[i](seed);
-    
+
     stop = time_us_64();
     ct = (stop - start);
     if (ct < cmin) {
@@ -90,18 +91,21 @@ int main(void)
 	 cmax = ct;
 	 cmaxix = i;
     }
-    
+
     printf("%-38s> Time: %.0f sec.; Bits: %ld\n", text[i], ct, n);
   }
   printf("\nBest  > %s\n", text[cminix]);
   printf("Worst > %s\n", text[cmaxix]);
-  return 0;
+
+  //Turning the PICO off (pin will never go HI)
+    gpio_put(LED_PIN, 0);
+    powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
 }
 
 static int bit_shifter(long int x)
 {
   int i, n;
-  
+
   for (i = n = 0; x && (i < (sizeof(long) * CHAR_BIT)); ++i, x >>= 1)
     n += (int)(x & 1L);
   return n;
