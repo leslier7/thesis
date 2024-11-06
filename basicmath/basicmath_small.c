@@ -10,12 +10,12 @@
 int main(void) {
 
     stdio_init_all();
-    double a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
-    double a2 = 1.0, b2 = -4.5, c2 = 17.0, d2 = -30.0;
-    double a3 = 1.0, b3 = -3.5, c3 = 22.0, d3 = -31.0;
-    double a4 = 1.0, b4 = -13.7, c4 = 1.0, d4 = -35.0;
-    double x[3];
-    double X;
+    float a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
+    float a2 = 1.0, b2 = -4.5, c2 = 17.0, d2 = -30.0;
+    float a3 = 1.0, b3 = -3.5, c3 = 22.0, d3 = -31.0;
+    float a4 = 1.0, b4 = -13.7, c4 = 1.0, d4 = -35.0;
+    float x[3];
+    float X;
     int solutions;
     int i;
     unsigned long l = 0x3fed0169L;

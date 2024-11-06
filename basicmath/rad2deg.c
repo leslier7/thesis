@@ -10,12 +10,12 @@
 #undef rad2deg                /* These are macros defined in PI.H */
 #undef deg2rad
 
-double rad2deg(double rad)
+float rad2deg(float rad)
 {
       return (180.0 * rad / (PI));
 }
 
-double deg2rad(double deg)
+float deg2rad(float deg)
 {
       return (PI * deg / 180.0);
 }
@@ -26,7 +26,7 @@ double deg2rad(double deg)
 
 main()
 {
-      double X;
+      float X;
 
       for (X = 0.0; X <= 360.0; X += 45.0)
             printf("%3.0f degrees = %.12f radians\n", X, deg2rad(X));
