@@ -97,7 +97,10 @@ printf("ImagOut:\n");
 
  printf("Time taken: %lld us\n", endTime - startTime);
 
- exit(0);
+ //powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
+
+ exit(0); //I should check this vs powman
+
 
 
 }
