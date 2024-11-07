@@ -5,6 +5,15 @@
 #include "pico/stdlib.h"
 #include "powman_example.h"
 
+//Used to find instruction count
+#if PICO_PLATFORM==rp2350-riscv
+#include "hardware/regs/rvcsr.h"
+
+void enable_instruction_counting();
+uint32_t read_instructions();
+
+#endif
+
 /* The printf's may be removed to isolate just the math calculations */
 
 int main(void) {
@@ -32,6 +41,23 @@ int main(void) {
     if(arch){
         gpio_put(LED_PIN, 1);
     }
+
+
+    //Testing the instruction counter (RISC only)
+    #if PICO_PLATFORM==rp2350-riscv
+    printf("Hello from RISC-V\n");
+    int temp = 0;
+    enable_instruction_counting();
+    uint32_t instructions = read_instructions();
+    printf("%lu\n", instructions);
+    temp++;
+    instructions = read_instructions();
+    printf("%lu\n", instructions);
+    //while(1){
+
+    //}
+
+    #endif
 
     uint64_t startTime = time_us_64();
     uint64_t endTime;
@@ -102,4 +128,17 @@ int main(void) {
     printf("Time taken: %lld us\n", endTime - startTime);
 
     powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
+}
+
+// Function to enable instruction counting
+void enable_instruction_counting() {
+    // Assuming mcountinhibit is at offset 0x320
+    uint32_t *mcountinhibit = (uint32_t *)RVCSR_MCOUNTINHIBIT_OFFSET;
+    *mcountinhibit &= ~(1 << RVCSR_MCOUNTINHIBIT_IR_LSB); // Clear the `IR` bit to enable instruction counting
+}
+
+// Function to read the value from the MINSTRETH register
+uint32_t read_instructions() {
+    uint32_t *minstreth = (uint32_t *)RVCSR_MINSTRETH_OFFSET;
+    return *minstreth;
 }
