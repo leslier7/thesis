@@ -4,6 +4,8 @@ set(NAME basicmath)
 set(PICO_BOARD pico2)
 #set(PICO_PLATFORM rp2350)
 
+SET(CMAKE_CXX_FLAGS_DEBUG "-O0")
+SET(CMAKE_C_FLAGS_DEBUG "-O0")
 
 include(pico_sdk_import.cmake)
 
