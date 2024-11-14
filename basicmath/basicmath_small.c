@@ -63,20 +63,22 @@ int main(void) {
     //Enabling the clock counter on the ARM cores
     #if PICO_PLATFORM==rp2350
         enableClockCount();
+        printf("%lu\n", cycleCount());
     #endif
 
     uint64_t endTime;
     uint64_t startTime = time_us_64();
 
-    /* solve soem cubic functions */
+    /*
+    *//* solve soem cubic functions *//*
     printf("********* CUBIC FUNCTIONS ***********\n");
-    /* should get 3 solutions: 2, 6 & 2.5   */
+    *//* should get 3 solutions: 2, 6 & 2.5   *//*
     SolveCubic(a1, b1, c1, d1, &solutions, x);
     printf("Solutions:");
     for (i = 0; i < solutions; i++)
         printf(" %f", x[i]);
     printf("\n");
-    /* should get 1 solution: 2.5           */
+    *//* should get 1 solution: 2.5           *//*
     SolveCubic(a2, b2, c2, d2, &solutions, x);
     printf("Solutions:");
     for (i = 0; i < solutions; i++)
@@ -92,7 +94,7 @@ int main(void) {
     for (i = 0; i < solutions; i++)
         printf(" %f", x[i]);
     printf("\n");
-    /* Now solve some random equations */
+    *//* Now solve some random equations *//*
     for (a1 = 1; a1 < 10; a1++) {
         for (b1 = 10; b1 > 0; b1--) {
             for (c1 = 5; c1 < 15; c1 += 0.5) {
@@ -108,7 +110,7 @@ int main(void) {
     }
 
     printf("********* INTEGER SQR ROOTS ***********\n");
-    /* perform some integer square roots */
+    *//* perform some integer square roots *//*
     for (i = 0; i < 1001; ++i) {
         usqrt(i, &q);
         // remainder differs on some machines
@@ -122,16 +124,25 @@ int main(void) {
 
 
     printf("********* ANGLE CONVERSION ***********\n");
-    /* convert some rads to degrees */
+    *//* convert some rads to degrees *//*
     for (X = 0.0; X <= 360.0; X += 1.0)
         printf("%3.0f degrees = %.12f radians\n", X, deg2rad(X));
     puts("");
     for (X = 0.0; X <= (2 * PI + 1e-6); X += (PI / 180))
         printf("%.12f radians = %3.0f degrees\n", X, rad2deg(X));
-
+    */
     endTime = time_us_64();
 
     printf("Time taken: %lld us\n", endTime - startTime);
+
+#if PICO_PLATFORM==rp2350
+    uint32_t clockCyclesPre = cycleCount();
+    int tempAdd = 0;
+    tempAdd ++;
+    uint32_t clockCyclesPost = cycleCount();
+    printf("Clock cycles before add: %lu\n", clockCyclesPre);
+    printf("Clock cycles after add: %lu\n", clockCyclesPost);
+#endif
 
     powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
 }
