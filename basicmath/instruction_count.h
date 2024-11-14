@@ -6,10 +6,12 @@
 #define BASICMATH_INSTRUCTION_COUNT_H
 #include "pico/stdlib.h"
 
-#if PICO_PLATFORM==rp2350
+
 void enableClockCount();
 
 uint32_t cycleCount();
-#endif
+
+uint32_t numberInstructions();
+
 
 #endif //BASICMATH_INSTRUCTION_COUNT_H

@@ -137,11 +137,16 @@ int main(void) {
 
 #if PICO_PLATFORM==rp2350
     uint32_t clockCyclesPre = cycleCount();
+    uint32_t instructionsPre = numberInstructions();
     int tempAdd = 0;
     tempAdd ++;
     uint32_t clockCyclesPost = cycleCount();
+    uint32_t instructionsPost = numberInstructions();
     printf("Clock cycles before add: %lu\n", clockCyclesPre);
     printf("Clock cycles after add: %lu\n", clockCyclesPost);
+    printf("Instructions before add: %lu\n", instructionsPre);
+    printf("Instructions after add: %lu\n", instructionsPost);
+    printf("Total instructions between add: %lu\n", (instructionsPost - instructionsPre));
 #endif
 
     powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
