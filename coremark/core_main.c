@@ -21,6 +21,7 @@ Original Author: Shay Gal-on
    initial parameters, tun t he benchmark and report the results.
 */
 #include "coremark.h"
+#include "pico/stdlib.h"
 
 /* Function: iterate
         Run the benchmark for a specified number of iterations.
@@ -115,6 +116,9 @@ MAIN_RETURN_TYPE
 main(int argc, char *argv[])
 {
 #endif
+    stdio_init_all();
+    printf("Starting coremark\n");
+    printf("Clock speed: %d\n", CLOCKS_PER_SEC);
     ee_u16       i, j = 0, num_algorithms = 0;
     ee_s16       known_id = -1, total_errors = 0;
     ee_u16       seedcrc = 0;
