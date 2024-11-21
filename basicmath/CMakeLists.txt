@@ -4,6 +4,18 @@ set(NAME basicmath)
 set(PICO_BOARD pico2)
 #set(PICO_PLATFORM rp2350)
 
+set(ARCH "arm" CACHE STRING "Architecture for the RP2350 (arm or risc)")
+
+if(ARCH STREQUAL "arm")
+    message(STATUS "Building for ARM architecture")
+    add_definitions(-DARCH_ARM)
+elseif(ARCH STREQUAL "risc")
+    message(STATUS "Building for RISC architecture")
+    add_definitions(-DARCH_RISC)
+else()
+    message(FATAL_ERROR "Unsupported architecture: ${ARCH}")
+endif()
+
 SET(CMAKE_CXX_FLAGS_DEBUG "-O0")
 SET(CMAKE_C_FLAGS_DEBUG "-O0")
 
