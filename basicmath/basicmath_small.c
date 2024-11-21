@@ -20,6 +20,7 @@ uint32_t read_instructions();
 int main(void) {
 
     stdio_init_all();
+    printf("Starting Basicmath\n");
     double a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
     double a2 = 1.0, b2 = -4.5, c2 = 17.0, d2 = -30.0;
     double a3 = 1.0, b3 = -3.5, c3 = 22.0, d3 = -31.0;
@@ -63,7 +64,11 @@ int main(void) {
     //Enabling the clock counter on the ARM cores
     #if PICO_PLATFORM==rp2350
         enableClockCount();
-        printf("%lu\n", cycleCount());
+        uint32_t structCount = cycleCount();
+        printf("Clock cycles from struct: %lu\n", structCount);
+    #elif PICO_PLATFORM==rp2350-riscv
+        enableClockCount();
+        printf("Risc-V");
     #endif
 
     uint64_t endTime;
@@ -137,6 +142,7 @@ int main(void) {
 
 #if PICO_PLATFORM==rp2350
     uint32_t clockCyclesPre = cycleCount();
+    printf("Right before instructions");
     uint32_t instructionsPre = numberInstructions();
     int tempAdd = 0;
     tempAdd ++;

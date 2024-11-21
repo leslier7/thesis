@@ -9,6 +9,8 @@
 
 void enableClockCount();
 
+//uint32_t cycleCountReg();
+
 uint32_t cycleCount();
 
 uint32_t numberInstructions();
