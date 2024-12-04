@@ -134,18 +134,18 @@ int main(void) {
     printf("Time taken: %lld us\n", endTime - startTime);
 
 
-//    uint32_t clockCyclesPre = cycleCount();
-//    printf("Right before instructions");
-//    uint32_t instructionsPre = numberInstructions();
-//    int tempAdd = 0;
-//    tempAdd ++;
-//    uint32_t clockCyclesPost = cycleCount();
-//    uint32_t instructionsPost = numberInstructions();
-//    printf("Clock cycles before add: %lu\n", clockCyclesPre);
-//    printf("Clock cycles after add: %lu\n", clockCyclesPost);
-//    printf("Instructions before add: %lu\n", instructionsPre);
-//    printf("Instructions after add: %lu\n", instructionsPost);
-//    printf("Total instructions between add: %lu\n", (instructionsPost - instructionsPre));
+    uint32_t clockCyclesPre = cycleCount();
+    printf("Right before instructions");
+    uint32_t instructionsPre = numberInstructions();
+    int tempAdd = 0;
+    tempAdd ++;
+    uint32_t clockCyclesPost = cycleCount();
+    uint32_t instructionsPost = numberInstructions();
+    printf("Clock cycles before add: %lu\n", clockCyclesPre);
+    printf("Clock cycles after add: %lu\n", clockCyclesPost);
+    printf("Instructions before add: %lu\n", instructionsPre);
+    printf("Instructions after add: %lu\n", instructionsPost);
+    printf("Total instructions between add: %lu\n", (instructionsPost - instructionsPre));
 
 
     powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
