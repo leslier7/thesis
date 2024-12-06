@@ -53,21 +53,22 @@ int main(void) {
     gpio_put(ON_PIN, 0);
 
 
-    /*//Testing the instruction counter (RISC only)
+    //Testing the instruction counter (RISC only)
     #if ARCH_RISC
     printf("Hello from RISC-V\n");
     int temp = 0;
-    enable_instruction_counting();
-    uint32_t instructions = read_instructions();
-    printf("%lu\n", instructions);
-    temp++;
-    instructions = read_instructions();
-    printf("%lu\n", instructions);
-    //while(1){
+    enableClockCount();
+    uint32_t instructions = numberInstructions();
+    for(int i = 0; i< 3; i++){ //Making sure that at least on of the adds has time to retire for risc
+        temp++;
+    }
+    uint32_t instructions2 = numberInstructions();
+    printf("Instructions first value: %lu\n", instructions);
+    printf("Instructions second value: %lu\n", instructions2);
+    printf("Instructions executed: %lu\n", instructions2 - instructions);
+    printf("Temp value: %d\n", temp);
 
-    //}
-
-    #endif*/
+    #endif
 
     //Enabling the clock counter on the ARM cores
     // Enabling the clock counter on the ARM cores

@@ -51,16 +51,34 @@ uint32_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EX
 #elif ARCH_RISC
 #include "hardware/regs/rvcsr.h"
 
-void enableClockCount(){
+// These are also defined in the reg file, mostly for reference
+#define MCOUNTINHIBIT _u(0x320) //used to enable the counters
 
+#define MINSTRET _u(0xb02) //Single instruction retire counter, low half
+#define MINSTRETh _u(0xb82) //High half instruction retire counter
+
+#define MCYCLE _u(0xb00)
+#define MCYCLEH _u(0xb80)
+
+#define CLEAR_BIT_0 (1U << 0)
+#define CLEAR_BIT_2 (1U << 2)
+
+//This crashes the program if optimization is turned off
+void enableClockCount(){
+    *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
 };
 
 uint32_t cycleCount(){
-    return -1;
+    uint32_t high = *(volatile uint32_t *)(RVCSR_MCYCLEH_OFFSET);
+    uint32_t low = *(volatile uint32_t *)(RVCSR_MCYCLE_OFFSET);
+    return ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
 };
 
-uint32_t numberInstructions(){
-    return -1;
+//This should return 0 I think if the register isn't enabled, but it returns like 160000 so its wrong
+uint64_t numberInstructions(){
+    uint32_t high = *(volatile uint32_t *)(RVCSR_MINSTRETH_OFFSET);
+    uint32_t low = *(volatile uint32_t *)(RVCSR_MINSTRET_OFFSET);
+    return ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
 };
 
 #endif
