@@ -9,7 +9,7 @@
 int main(void) {
 
     stdio_init_all();
-    sleep_ms(100);
+    sleep_ms(10000);
     printf("Hello featureTest!\n");
 
     uint32_t archReg = otp_hw->archsel_status;
