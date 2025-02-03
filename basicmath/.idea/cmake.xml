@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSharedSettings">
+    <configurations>
+      <configuration PROFILE_NAME="RISC-V" ENABLED="true" GENERATION_DIR="build-risc" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv -DARCH=risc">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="ARM Debug" ENABLED="true" GENERATION_DIR="build-arm-debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+    </configurations>
+  </component>
+</project>
