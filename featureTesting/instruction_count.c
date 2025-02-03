@@ -65,7 +65,11 @@ uint32_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EX
 
 //This crashes the program if optimization is turned off
 void enableClockCount(){
+    uint32_t value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+    printf("The value at the register is %lu\n", value);
     *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
+    value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+    printf("The value at the register is now %lu\n", value);
 };
 
 uint32_t cycleCount(){
