@@ -66,11 +66,26 @@ uint32_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EX
 //This crashes the program if optimization is turned off
 void enableClockCount(){
     uint32_t value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-    printf("The value at the register is %lu\n", value);
-    *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
-    value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-    printf("The value at the register is now %lu\n", value);
-};
+    //printf("The value at the register is %lu\n", value);
+    uint32_t ir_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+    uint32_t cy_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
+    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
+    printf("The IR value is %lu and the CY value is %lu\n", ir_value, cy_value);
+
+    // Set the IR and CY bits
+    value |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
+
+    // Write the modified value back to the register
+    *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) = value;
+
+   // *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
+   // value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+    //printf("The value at the register is now %lu\n", value);
+    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
+    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
+    printf("The IR value is now %lu and the CY value is now %lu\n", ir_value, cy_value);
+}
 
 uint32_t cycleCount(){
     uint32_t high = *(volatile uint32_t *)(RVCSR_MCYCLEH_OFFSET);
