@@ -52,7 +52,8 @@ uint32_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EX
 #include "hardware/regs/rvcsr.h"
 
 // These are also defined in the reg file, mostly for reference
-#define MCOUNTINHIBIT _u(0x320) //used to enable the counters
+//#define MCOUNTINHIBIT _u(0x320) //used to enable the counters
+#define MCOUNTINHIBIT "320" //used to enable the counters
 
 #define MINSTRET _u(0xb02) //Single instruction retire counter, low half
 #define MINSTRETh _u(0xb82) //High half instruction retire counter
@@ -63,41 +64,61 @@ uint32_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EX
 #define CLEAR_BIT_0 (1U << 0)
 #define CLEAR_BIT_2 (1U << 2)
 
+#define MCOUNTINHIBIT_IR_MSB 2
+#define MCOUNTINHIBIT_CY_MSB 0
+
 //This crashes the program if optimization is turned off
 void enableClockCount(){
-    uint32_t value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-    //printf("The value at the register is %lu\n", value);
-    uint32_t ir_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-    uint32_t cy_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
-    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
-    printf("The IR value is %lu and the CY value is %lu\n", ir_value, cy_value);
 
-    // Set the IR and CY bits
-    value |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
+    uint32_t value;
 
-    // Write the modified value back to the register
-    *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) = value;
+    // Read MCOUNTINHIBIT register
+    asm volatile ("csrr %0, " MCOUNTINHIBIT : "=r"(value));
+    printf("The value at the register is %lu\n", (unsigned long)value);
 
-   // *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
-   // value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-    //printf("The value at the register is now %lu\n", value);
-    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
-    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
-    printf("The IR value is now %lu and the CY value is now %lu\n", ir_value, cy_value);
+    // Modify the register (set IR and CY bits)
+    value |= ((1U << MCOUNTINHIBIT_IR_MSB) | (1U << MCOUNTINHIBIT_CY_MSB));
+
+    // Write modified value back to MCOUNTINHIBIT
+    asm volatile ("csrw " MCOUNTINHIBIT ", %0" :: "r"(value));
+
+    // Read again to verify
+    asm volatile ("csrr %0, " MCOUNTINHIBIT : "=r"(value));
+    printf("The updated value at the register is %lu\n", (unsigned long)value);
+
+//    uint32_t value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+//    //printf("The value at the register is %lu\n", value);
+//    uint32_t ir_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+//    uint32_t cy_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+//    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
+//    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
+//    printf("The IR value is %lu and the CY value is %lu\n", ir_value, cy_value);
+//
+//    // Set the IR and CY bits
+//    value |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
+//
+//    // Write the modified value back to the register
+//    *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) = value;
+//
+//   // *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
+//   // value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
+//    //printf("The value at the register is now %lu\n", value);
+//    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
+//    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
+//    printf("The IR value is now %lu and the CY value is now %lu\n", ir_value, cy_value);
 }
 
 uint32_t cycleCount(){
     uint32_t high = *(volatile uint32_t *)(RVCSR_MCYCLEH_OFFSET);
     uint32_t low = *(volatile uint32_t *)(RVCSR_MCYCLE_OFFSET);
     return ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
-};
+}
 
 //This should return 0 I think if the register isn't enabled, but it returns like 160000 so its wrong
 uint64_t numberInstructions(){
     uint32_t high = *(volatile uint32_t *)(RVCSR_MINSTRETH_OFFSET);
     uint32_t low = *(volatile uint32_t *)(RVCSR_MINSTRET_OFFSET);
     return ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
-};
+}
 
 #endif
