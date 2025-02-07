@@ -11,13 +11,15 @@ void enableClockCount();
 
 //uint32_t cycleCountReg();
 
-uint32_t cycleCount();
+uint64_t cycleCount();
+uint64_t numberInstructions();
 
 #ifdef ARCH_ARM
-uint32_t numberInstructions();
+
 
 #elif ARCH_RISC
-uint64_t numberInstructions();
+
+
 #endif
 
 #endif //BASICMATH_INSTRUCTION_COUNT_H

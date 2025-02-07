@@ -11,6 +11,7 @@ int main(void) {
     stdio_init_all();
     sleep_ms(10000);
     printf("Hello featureTest!\n");
+    printf("New message3\n");
 
     uint32_t archReg = otp_hw->archsel_status;
     bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
@@ -58,14 +59,15 @@ int main(void) {
     printf("Hello from RISC-V\n");
     int temp = 0;
     enableClockCount();
-    uint32_t instructions = numberInstructions();
-    for(int i = 0; i< 3; i++){ //Making sure that at least on of the adds has time to retire for risc
-        temp++;
-    }
-    uint32_t instructions2 = numberInstructions();
-    printf("Instructions first value: %lu\n", instructions);
-    printf("Instructions second value: %lu\n", instructions2);
-    printf("Instructions executed: %lu\n", instructions2 - instructions);
+    uint64_t instructions = numberInstructions();
+    //temp++;
+//    for(int i = 0; i< 3; i++){ //Making sure that at least on of the adds has time to retire for risc
+//        temp++;
+//    }
+    uint64_t instructions2 = numberInstructions();
+    printf("Instructions first value: %llu\n", instructions);
+    printf("Instructions second value: %llu\n", instructions2);
+    printf("Instructions executed: %llu\n", instructions2 - instructions);
     printf("Temp value: %d\n", temp);
 
     #endif
@@ -81,6 +83,9 @@ int main(void) {
     printf("Risc-V\n");
     cycleCount();
 #endif
+
+//Put this at the end because picotool doesn't like connecting after main finishes
+while(true);
 
     //uint64_t endTime;
     //uint64_t startTime = time_us_64();
