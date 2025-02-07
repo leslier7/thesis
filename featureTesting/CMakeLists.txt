@@ -16,8 +16,8 @@ else()
     message(FATAL_ERROR "Unsupported architecture: ${ARCH}")
 endif()
 
-#SET(CMAKE_CXX_FLAGS_DEBUG "-O0")
-#SET(CMAKE_C_FLAGS_DEBUG "-O0")
+SET(CMAKE_CXX_FLAGS_DEBUG "-O3")
+SET(CMAKE_C_FLAGS_DEBUG "-O3")
 
 include(pico_sdk_import.cmake)
 

@@ -89,8 +89,8 @@ void enableClockCount() {
     //Enabling the user to access the registers
     accessValue = readCSR(MCOUNTEREN);
 
-    accessValue = readCSR(MCOUNTEREN);
-    printf("The value at the access register is %lb\n", accessValue);
+    //accessValue = readCSR(MCOUNTEREN);
+    //printf("The value at the access register is %lb\n", accessValue);
 
     // Set bits 0 and 2 to 1
     accessValue |= (1U << 0) | (1U << 2);
@@ -98,79 +98,50 @@ void enableClockCount() {
     // Write the modified value back to the CSR
     writeCSR(MCOUNTEREN, accessValue);
 
-    accessValue = readCSR(MCOUNTEREN);
-    printf("The value at the access register is now %lb\n", accessValue);
+    //accessValue = readCSR(MCOUNTEREN);
+    //printf("The value at the access register is now %lb\n", accessValue);
 
-    printf("Enabling the counter registers.\n");
+    //printf("Enabling the counter registers.\n");
     // Read MCOUNTINHIBIT register
     asm volatile ("csrr %0, %1" : "=r"(value) : "i"(MCOUNTINHIBIT));
-    printf("The value at the register is %lb\n", (unsigned long)value);
+    //printf("The value at the register is %lb\n", (unsigned long)value);
 
     // Modify the register (set IR and CY bits)
     value &= ~((1U << MCOUNTINHIBIT_IR_MSB) | (1U << MCOUNTINHIBIT_CY_MSB));
 
-    printf("The value of the register should now be: %lb\n", value);
-
+    //printf("The value of the register should now be: %lb\n", value);
 
     // Write modified value back to MCOUNTINHIBIT
     asm volatile ("csrw %0, %1" :: "i"(MCOUNTINHIBIT), "r"(value));
 
     // Read again to verify
-    asm volatile ("csrr %0, %1" : "=r"(value) : "i"(MCOUNTINHIBIT));
-    printf("The updated value at the register is %lb\n", (unsigned long)value);
-
-//    uint32_t value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-//    //printf("The value at the register is %lu\n", value);
-//    uint32_t ir_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-//    uint32_t cy_value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-//    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
-//    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
-//    printf("The IR value is %lu and the CY value is %lu\n", ir_value, cy_value);
-//
-//    // Set the IR and CY bits
-//    value |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
-//
-//    // Write the modified value back to the register
-//    *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) = value;
-//
-//   // *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET) |= ((1U << RVCSR_MCOUNTINHIBIT_IR_MSB) | (1U << RVCSR_MCOUNTINHIBIT_CY_MSB));
-//   // value = *(volatile uint32_t *)(RVCSR_MCOUNTINHIBIT_OFFSET);
-//    //printf("The value at the register is now %lu\n", value);
-//    ir_value = (ir_value >> RVCSR_MCOUNTINHIBIT_IR_MSB) & 1U;
-//    cy_value = (cy_value >> RVCSR_MCOUNTINHIBIT_CY_MSB) & 1U;
-//    printf("The IR value is now %lu and the CY value is now %lu\n", ir_value, cy_value);
+    //asm volatile ("csrr %0, %1" : "=r"(value) : "i"(MCOUNTINHIBIT));
+    //printf("The updated value at the register is %lb\n", (unsigned long)value);
 }
 
 uint64_t cycleCount(){
-    uint32_t high = readCSR(MCYCLE);
-    uint32_t low = readCSR(MCYCLEH);
-    printf("Low value of cycle count: %lu\n", low);
-    return ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
+//    uint32_t high = readCSR(MCYCLE);
+//    uint32_t low = readCSR(MCYCLEH);
+//    printf("Low value of cycle count: %lu\n", low);
+//    return ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
+
+    uint32_t low, high;
+    asm volatile (
+            "csrr %0, mcycle \n"
+            "csrr %1, mcycleh \n"
+            : "=r" (low), "=r" (high)
+            );
+    return ((uint64_t)high << 32) | low;
 }
 
-//This should return 0 I think if the register isn't enabled, but it returns like 160000 so its wrong
-uint64_t numberInstructions(){
-//    uint32_t high = readCSR(MINSTRET);
-//    uint32_t low = readCSR(MINSTRETH);
-//    printf("Low value of instruction count: %lu\n", low);
-//    printf("High value of instruction count: %lu\n", high);
-//    uint64_t returnValue = ((uint64_t)high << 32) | low; // Combine high and low into a 64-bit value
-//    printf("Return value: %llu\n", returnValue);
-//    return returnValue;
-    uint32_t high1, high2, low;
-    do {
-        high1 = readCSR(MINSTRETH); // Read high part first
-        low = readCSR(MINSTRET);    // Read low part
-        high2 = readCSR(MINSTRETH); // Read high part again
-    } while (high1 != high2); // Ensure no overflow occurred while reading
-
-    printf("Low value of instruction count: %lu\n", low);
-    printf("High value of instruction count: %lu\n", high1);
-
-    uint64_t returnValue = ((uint64_t)high1 << 32) | low;
-    printf("Return value: %llu\n", returnValue);
-    return returnValue;
-
+inline uint64_t numberInstructions() {
+    uint32_t low, high;
+    asm volatile (
+            "csrr %0, minstret \n"
+            "csrr %1, minstreth \n"
+            : "=r" (low), "=r" (high)
+            );
+    return ((uint64_t)high << 32) | low;
 }
 
 #endif

@@ -57,10 +57,10 @@ int main(void) {
     //Testing the instruction counter (RISC only)
     #if ARCH_RISC
     printf("Hello from RISC-V\n");
-    int temp = 0;
+    volatile int temp = 0;
     enableClockCount();
     uint64_t instructions = numberInstructions();
-    //temp++;
+    temp++;
 //    for(int i = 0; i< 3; i++){ //Making sure that at least on of the adds has time to retire for risc
 //        temp++;
 //    }
