@@ -20,7 +20,9 @@ add_executable(basicmath_small
         isqrt.c
         rad2deg.c
         powman_example.c
-        )
+        instruction_count.c
+        instruction_count.h
+)
 
 add_executable(basicmath_large
         basicmath_large.c
@@ -31,6 +33,8 @@ add_executable(basicmath_large
         isqrt.c
         rad2deg.c
         powman_example.c
+        instruction_count.c
+        instruction_count.h
 )
 
 # pull in common dependencies
