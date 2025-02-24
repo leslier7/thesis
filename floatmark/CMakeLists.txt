@@ -27,7 +27,6 @@ pico_sdk_init()
 
 add_executable(main
         main.c
-        powman_example.c
         instruction_count.c
         instruction_count.h
         power_functions.c

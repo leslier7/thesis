@@ -7,8 +7,8 @@
 
 void initPowerTesting();
 
-inline void startTesting();
+void startPowerTesting();
 
-inline void stopTesting();
+void stopPowerTesting();
 
 #endif //FEATURETESTING_POWERFUNCTIONS_H

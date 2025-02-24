@@ -14,10 +14,10 @@ void initPowerTesting(){
     gpio_put(ON_PIN, 0);
 }
 
-inline void startTesting(){
+void startPowerTesting(){
     gpio_put(ON_PIN, 0);
 }
 
-inline void stopTesting(){
+void stopPowerTesting(){
     gpio_put(ON_PIN, 0);
 }

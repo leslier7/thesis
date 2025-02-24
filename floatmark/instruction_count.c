@@ -35,11 +35,11 @@ uint32_t cycleCountReg() {
     return *(volatile uint32_t *) (PPB_BASE + M33_DWT_CYCCNT_OFFSET);
 }
 
-uint64_t cycleCount() {
+inline uint64_t cycleCount() {
     return m33_hw->dwt_cyccnt; //This should get the number of clock cycles
 }
 
-uint64_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EXCCNT - SLEEPCNT - LSUCNT + FOLDCNT
+inline uint64_t numberInstructions() { // number of instructions = CYCCNT - CPICNT - EXCCNT - SLEEPCNT - LSUCNT + FOLDCNT
     //Missing CPICNT and SLEEPCNT registers
     return m33_hw->dwt_cyccnt - DWT_CPICNT_VAL
     -m33_hw->dwt_exccnt - DWT_SLEEPCNT_VAL
@@ -119,7 +119,7 @@ void enableClockCount() {
     //printf("The updated value at the register is %lb\n", (unsigned long)value);
 }
 
-uint64_t cycleCount(){
+inline uint64_t cycleCount(){
 //    uint32_t high = readCSR(MCYCLE);
 //    uint32_t low = readCSR(MCYCLEH);
 //    printf("Low value of cycle count: %lu\n", low);
