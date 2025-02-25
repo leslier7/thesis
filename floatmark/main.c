@@ -15,13 +15,10 @@ int main(void) {
     //Used to confirm which arch is running
     uint32_t archReg = otp_hw->archsel_status;
     bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
-    switch(arch){
-        case 0:
-            printf("Hello from ARM!\n");
-            break;
-        case 1:
-            printf("Hello from RISC-V!\n");
-            break;
+    if (arch) {
+        printf("Hello from RISC-V!\n");
+    } else {
+        printf("Hello from ARM!\n");
     }
 
     initPowerTesting();
@@ -45,10 +42,10 @@ int main(void) {
     a_f = 0.0f;
     b_f = 5.0f;
     c_f = 0;
-    for(int i = 0; i<100; i++){
+    for(int i = 0; i<100000; i++){
         a_f+=0.5f;
-        b_f += 5.3f;
-        c_f = a_f+b_f;
+        b_f += 0.3f;
+        c_f += a_f+b_f-10;
         //printf("C = %f\n", c_f);
         //Without the print statement, it takes a very small amount of time/instructions to execute
         //Might want to figure out a way to not have the compiler optimize this away.
@@ -75,10 +72,10 @@ int main(void) {
     a_f = 0.0f;
     b_f = 5.0f;
     c_f = 0;
-    for(int i = 0; i<100; i++){
+    for(int i = 0; i<100000; i++){
         a_f-=0.5f;
-        b_f -= 5.3f;
-        c_f = a_f-b_f;
+        b_f -= 0.3f;
+        c_f -= a_f-b_f+10;
         //printf("C = %f\n", c_f);
         //Without the print statement, it takes a very small amount of time/instructions to execute
         //Might want to figure out a way to not have the compiler optimize this away.
@@ -103,12 +100,12 @@ int main(void) {
     cycles1 = cycleCount();
     instructions1 = numberInstructions();
     a_f = 1.0f;
-    b_f = 2.0f;
+    b_f = 1.04f;
     c_f = 0;
-    for(int i = 0; i < 100; i++){
-        a_f *= 1.01f;
-        b_f *= 1.03f;
-        c_f = a_f * b_f;
+    for(int i = 0; i < 100000; i++){
+        a_f *= 1.00001f;
+        b_f *= 1.00003f;
+        c_f += (a_f * b_f);
         //printf("C = %f\n", c_f);
         //Without the print statement, it takes a very small amount of time/instructions to execute
         //Might want to figure out a way to not have the compiler optimize this away.
@@ -135,10 +132,10 @@ int main(void) {
     a_f = 10.0f;
     b_f = 2.0f;
     c_f = 0;
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i < 100000; i++){
         a_f /= 1.1f;
         b_f /= 1.05f;
-        c_f = a_f / b_f;
+        c_f += (a_f / b_f);
         //printf("C = %f\n", c_f);
         //Without the print statement, it takes a very small amount of time/instructions to execute
         //Might want to figure out a way to not have the compiler optimize this away.

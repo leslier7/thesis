@@ -15,7 +15,7 @@ void initPowerTesting(){
 }
 
 void startPowerTesting(){
-    gpio_put(ON_PIN, 0);
+    gpio_put(ON_PIN, 1);
 }
 
 void stopPowerTesting(){
