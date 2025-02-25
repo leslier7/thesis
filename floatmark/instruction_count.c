@@ -87,7 +87,7 @@ void enableClockCount() {
     uint32_t value;
     uint32_t accessValue;
     //Enabling the user to access the registers
-    accessValue = readCSR(MCOUNTEREN);
+    asm volatile ("csrr %0, %1" : "=r"(accessValue) : "i"(MCOUNTEREN));
 
     //accessValue = readCSR(MCOUNTEREN);
     //printf("The value at the access register is %lb\n", accessValue);
@@ -96,7 +96,7 @@ void enableClockCount() {
     accessValue |= (1U << 0) | (1U << 2);
 
     // Write the modified value back to the CSR
-    writeCSR(MCOUNTEREN, accessValue);
+    asm volatile ("csrw %1, %0" :: "r"(accessValue), "n"(MCOUNTEREN));
 
     //accessValue = readCSR(MCOUNTEREN);
     //printf("The value at the access register is now %lb\n", accessValue);
