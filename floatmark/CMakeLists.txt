@@ -22,6 +22,10 @@ project(featureTesting)
 
 pico_sdk_init()
 
+# Define UART and USB settings
+set(UART_ENABLE 1)
+set(USB_ENABLE 0)
+
 # Create target with -O3 optimization
 add_executable(main_O3
         main.c
@@ -32,8 +36,8 @@ add_executable(main_O3
 target_compile_options(main_O3 PRIVATE -O3)
 target_link_libraries(main_O3 pico_stdlib hardware_powman pico_bootsel_via_double_reset)
 pico_add_extra_outputs(main_O3)
-pico_enable_stdio_usb(main_O3 1)
-pico_enable_stdio_uart(main_O3 0)
+pico_enable_stdio_usb(main_O3 ${USB_ENABLE})
+pico_enable_stdio_uart(main_O3 ${UART_ENABLE})
 
 # Create target with -O0 optimization
 add_executable(main_O0
@@ -45,5 +49,5 @@ add_executable(main_O0
 target_compile_options(main_O0 PRIVATE -O0)
 target_link_libraries(main_O0 pico_stdlib hardware_powman pico_bootsel_via_double_reset)
 pico_add_extra_outputs(main_O0)
-pico_enable_stdio_usb(main_O0 1)
-pico_enable_stdio_uart(main_O0 0)
+pico_enable_stdio_usb(main_O0 ${USB_ENABLE})
+pico_enable_stdio_uart(main_O0 ${UART_ENABLE})
