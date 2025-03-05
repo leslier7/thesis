@@ -10,7 +10,7 @@
 int main(void) {
 
     stdio_init_all();
-    //sleep_ms(5000);
+    sleep_ms(5000);
     printf("Hello Floatmark!\n");
 
     //Used to confirm which arch is running
@@ -133,13 +133,48 @@ int main(void) {
     a_f = 10.0f;
     b_f = 2.0f;
     c_f = 0;
+    double temp_a_f = 10.0;
+    double temp_b_f = 2.0;
+    double temp_c_f = 0;
+    //Pick a number above 1 for one , and below 1 for another so that one increases and the other decreases
     for(int i = 0; i < 100000; i++){
-        a_f /= 1.1f;
+        a_f /= 1.001f;
+        temp_a_f /= a_f;
+        if(temp_a_f > a_f) {
+            printf("A_f overflow Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
+            printf("Temp overflows: %e\n", temp_a_f);
+        } else {
+            temp_a_f = a_f;
+        }
         b_f /= 1.05f;
+        temp_b_f /= 1.05;
+        if(temp_b_f > b_f) {
+            printf("B_f overflow Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
+            printf("Temp overflows: %e\n", temp_b_f);
+        } else {
+            temp_b_f = b_f;
+        }
         c_f += (a_f / b_f);
+        temp_c_f += (a_f / b_f);
+        if(temp_c_f > c_f) {
+            printf("Overflow on iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
+            printf("Temp overflows: %e\n", temp_c_f);
+        } else {
+            temp_c_f = c_f;
+        }
         //printf("C = %f\n", c_f);
         //Without the print statement, it takes a very small amount of time/instructions to execute
         //Might want to figure out a way to not have the compiler optimize this away.
+
+        if(i == 2251){
+            printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
+        }
+
+        if(c_f > 200){
+            printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
+            while(true);
+        }
+
         if(i == 99999){
             printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
         } else if (i == 451){
