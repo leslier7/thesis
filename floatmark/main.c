@@ -48,8 +48,6 @@ int main(void) {
         b_f += 0.3f;
         c_f += a_f+b_f-10;
         //printf("C = %f\n", c_f);
-        //Without the print statement, it takes a very small amount of time/instructions to execute
-        //Might want to figure out a way to not have the compiler optimize this away.
     }
     time2 =time_us_64();
     cycles2 = cycleCount();
@@ -78,8 +76,6 @@ int main(void) {
         b_f -= 0.3f;
         c_f -= a_f-b_f+10;
         //printf("C = %f\n", c_f);
-        //Without the print statement, it takes a very small amount of time/instructions to execute
-        //Might want to figure out a way to not have the compiler optimize this away.
     }
     time2 =time_us_64();
     cycles2 = cycleCount();
@@ -108,8 +104,6 @@ int main(void) {
         b_f *= 1.00003f;
         c_f += (a_f * b_f);
         //printf("C = %f\n", c_f);
-        //Without the print statement, it takes a very small amount of time/instructions to execute
-        //Might want to figure out a way to not have the compiler optimize this away.
     }
     time2 =time_us_64();
     cycles2 = cycleCount();
@@ -133,53 +127,11 @@ int main(void) {
     a_f = 10.0f;
     b_f = 2.0f;
     c_f = 0;
-    double temp_a_f = 10.0;
-    double temp_b_f = 2.0;
-    double temp_c_f = 0;
     //Pick a number above 1 for one , and below 1 for another so that one increases and the other decreases
     for(int i = 0; i < 100000; i++){
-        a_f /= 1.001f;
-        temp_a_f /= a_f;
-        if(temp_a_f > a_f) {
-            printf("A_f overflow Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-            printf("Temp overflows: %e\n", temp_a_f);
-        } else {
-            temp_a_f = a_f;
-        }
-        b_f /= 1.05f;
-        temp_b_f /= 1.05;
-        if(temp_b_f > b_f) {
-            printf("B_f overflow Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-            printf("Temp overflows: %e\n", temp_b_f);
-        } else {
-            temp_b_f = b_f;
-        }
+        a_f /= 0.99999f;
+        b_f /= 0.99997f;
         c_f += (a_f / b_f);
-        temp_c_f += (a_f / b_f);
-        if(temp_c_f > c_f) {
-            printf("Overflow on iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-            printf("Temp overflows: %e\n", temp_c_f);
-        } else {
-            temp_c_f = c_f;
-        }
-        //printf("C = %f\n", c_f);
-        //Without the print statement, it takes a very small amount of time/instructions to execute
-        //Might want to figure out a way to not have the compiler optimize this away.
-
-        if(i == 2251){
-            printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-        }
-
-        if(c_f > 200){
-            printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-            while(true);
-        }
-
-        if(i == 99999){
-            printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-        } else if (i == 451){
-            printf("Iteration %d: a_f = %e, b_f = %e, c_f = %f\n", i, a_f, b_f, c_f);
-        }
     }
     time2 =time_us_64();
     cycles2 = cycleCount();
@@ -190,97 +142,93 @@ int main(void) {
     printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
     printf("Instructions executed: %llu\n", instructions2-instructions1);
     printf("Clock cycles: %llu\n", cycles2-cycles1);
-//
-//    //Begin double section
-//
-//    printf("\nStarting DoubleMark\n");
-//
-//    printf("\n");
-//    printf("Double addition.\n");
-//    startPowerTesting();
-//    time1 = time_us_64();
-//    cycles1 = cycleCount();
-//    instructions1 = numberInstructions();
-//    a_d = 0.0;
-//    b_d = 5.0;
-//    c_d = 0;
-//    for(int i = 0; i<100000; i++){
-//        a_d+=0.5;
-//        b_d += 0.3;
-//        c_d += a_d+b_d-10;
-//        //printf("C = %f\n", c_f);
-//        //Without the print statement, it takes a very small amount of time/instructions to execute
-//        //Might want to figure out a way to not have the compiler optimize this away.
-//    }
-//    time2 =time_us_64();
-//    cycles2 = cycleCount();
-//    instructions2 = numberInstructions();
-//    stopPowerTesting();
-//    printf("C = %f\n", c_d); //Testing printing just the final result to make sure compiler still doesn't optimize
-//    printf("Double Addition Results: \n");
-//    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
-//    printf("Instructions executed: %llu\n", instructions2-instructions1);
-//    printf("Clock cycles: %llu\n", cycles2-cycles1);
-//
-//    //Making sure that the different tests show up in the power profiler
-//    sleep_ms(500);
-//
-//    printf("\n");
-//    printf("Double subtraction.\n");
-//    startPowerTesting();
-//    time1 = time_us_64();
-//    cycles1 = cycleCount();
-//    instructions1 = numberInstructions();
-//    a_d = 0.0;
-//    b_d = 5.0;
-//    c_d = 0;
-//    for(int i = 0; i<100000; i++){
-//        a_d-=0.5;
-//        b_d -= 0.3;
-//        c_d -= a_d-b_d+10;
-//        //printf("C = %f\n", c_d);
-//        //Without the print statement, it takes a very small amount of time/instructions to execute
-//        //Might want to figure out a way to not have the compiler optimize this away.
-//    }
-//    time2 =time_us_64();
-//    cycles2 = cycleCount();
-//    instructions2 = numberInstructions();
-//    stopPowerTesting();
-//    printf("C = %f\n", c_d); //Testing printing just the final result to make sure compiler still doesn't optimize
-//    printf("Double Subtraction Results: \n");
-//    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
-//    printf("Instructions executed: %llu\n", instructions2-instructions1);
-//    printf("Clock cycles: %llu\n", cycles2-cycles1);
-//
-//    //Making sure that the different tests show up in the power profiler
-//    sleep_ms(500);
-//
-//    printf("\n");
-//    printf("Double multiplication.\n");
-//    startPowerTesting();
-//    time1 = time_us_64();
-//    cycles1 = cycleCount();
-//    instructions1 = numberInstructions();
-//    a_d = 1.0;
-//    b_d = 1.04;
-//    c_d = 0;
-//    for(int i = 0; i < 100000; i++){
-//        a_d *= 1.00001;
-//        b_d *= 1.00003;
-//        c_d += (a_d * b_d);
-//        //printf("C = %f\n", c_d);
-//        //Without the print statement, it takes a very small amount of time/instructions to execute
-//        //Might want to figure out a way to not have the compiler optimize this away.
-//    }
-//    time2 =time_us_64();
-//    cycles2 = cycleCount();
-//    instructions2 = numberInstructions();
-//    stopPowerTesting();
-//    printf("C = %f\n", c_d); //Testing printing just the final result to make sure compiler still doesn't optimize
-//    printf("Double Multiplication Results: \n");
-//    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
-//    printf("Instructions executed: %llu\n", instructions2-instructions1);
-//    printf("Clock cycles: %llu\n", cycles2-cycles1);
+
+    //Begin double section
+
+    printf("\nStarting DoubleMark\n");
+
+    printf("\n");
+    printf("Double addition.\n");
+    startPowerTesting();
+    time1 = time_us_64();
+    cycles1 = cycleCount();
+    instructions1 = numberInstructions();
+    a_d = 0.0;
+    b_d = 5.0;
+    c_d = 0;
+    for(int i = 0; i<100000; i++){
+        a_d+=0.5;
+        b_d += 0.3;
+        c_d += a_d+b_d-10;
+        //printf("C = %f\n", c_f);
+    }
+    time2 =time_us_64();
+    cycles2 = cycleCount();
+    instructions2 = numberInstructions();
+    stopPowerTesting();
+    printf("C = %f\n", c_d); //Testing printing just the final result to make sure compiler still doesn't optimize
+    printf("Double Addition Results: \n");
+    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
+    printf("Instructions executed: %llu\n", instructions2-instructions1);
+    printf("Clock cycles: %llu\n", cycles2-cycles1);
+
+    //Making sure that the different tests show up in the power profiler
+    sleep_ms(500);
+
+    printf("\n");
+    printf("Double subtraction.\n");
+    startPowerTesting();
+    time1 = time_us_64();
+    cycles1 = cycleCount();
+    instructions1 = numberInstructions();
+    a_d = 0.0;
+    b_d = 5.0;
+    c_d = 0;
+    for(int i = 0; i<100000; i++){
+        a_d-=0.5;
+        b_d -= 0.3;
+        c_d -= a_d-b_d+10;
+        //printf("C = %f\n", c_d);
+    }
+    time2 =time_us_64();
+    cycles2 = cycleCount();
+    instructions2 = numberInstructions();
+    stopPowerTesting();
+    printf("C = %f\n", c_d); //Testing printing just the final result to make sure compiler still doesn't optimize
+    printf("Double Subtraction Results: \n");
+    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
+    printf("Instructions executed: %llu\n", instructions2-instructions1);
+    printf("Clock cycles: %llu\n", cycles2-cycles1);
+
+    //Making sure that the different tests show up in the power profiler
+    sleep_ms(500);
+
+    printf("\n");
+    printf("Double multiplication.\n");
+    startPowerTesting();
+    time1 = time_us_64();
+    cycles1 = cycleCount();
+    instructions1 = numberInstructions();
+    a_d = 1.0;
+    b_d = 1.04;
+    c_d = 0;
+    for(int i = 0; i < 100000; i++){
+        a_d *= 1.00001;
+        b_d *= 1.00003;
+        c_d += (a_d * b_d);
+        //printf("C = %f\n", c_d);
+        //Without the print statement, it takes a very small amount of time/instructions to execute
+        //Might want to figure out a way to not have the compiler optimize this away.
+    }
+    time2 =time_us_64();
+    cycles2 = cycleCount();
+    instructions2 = numberInstructions();
+    stopPowerTesting();
+    printf("C = %f\n", c_d); //Testing printing just the final result to make sure compiler still doesn't optimize
+    printf("Double Multiplication Results: \n");
+    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
+    printf("Instructions executed: %llu\n", instructions2-instructions1);
+    printf("Clock cycles: %llu\n", cycles2-cycles1);
 
     //Making sure that the different tests show up in the power profiler
     sleep_ms(500);
@@ -296,21 +244,9 @@ int main(void) {
     c_d = 0;
     int counter = 0;
     for(int i = 0; i < 100000; i++){
-        a_d /= 1.1;
-        b_d /= 1.05;
+        a_d /= 0.99999;
+        b_d /= 0.99997;
         c_d += (a_d / b_d);
-        printf("C = %f\n", c_d);
-        printf("Iteration %d: a_d = %e, b_d = %e, c_d = %f\n", i, a_d, b_d, c_d);
-
-        if(i > 450){
-            printf("Error: c_d is 105 at iteration %d\n", i);
-            while(true);
-        }
-
-        if(isnan(c_d)){
-            printf("Error: c_d is nan at iteration %d\n", i);
-            while(true);
-        }
     }
     time2 =time_us_64();
     cycles2 = cycleCount();

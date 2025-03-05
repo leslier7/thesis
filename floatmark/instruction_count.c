@@ -21,7 +21,7 @@ void enableClockCount() {
     m33_hw->dwt_ctrl |= (1 << 19); //sets SLEEPEVTENA to 1 to enable DWT_SLEEPCNT
     m33_hw->dwt_ctrl |= (1 << 20); //sets LSUEVTENA to 1 to enable DWT_LSUCNT
     m33_hw->dwt_ctrl |= (1 << 21); //sets FOLDEVTENA to 1 to enable DWT_FOLDCNT
-    printf("Enabled clock count\n");
+    //printf("Enabled clock count\n");
 }
 
 #define DWT_CPICNT _u(0x00001008)
