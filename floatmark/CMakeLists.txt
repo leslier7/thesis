@@ -23,8 +23,8 @@ project(featureTesting)
 pico_sdk_init()
 
 # Define UART and USB settings
-set(UART_ENABLE 0)
-set(USB_ENABLE 1)
+set(UART_ENABLE 1)
+set(USB_ENABLE 0)
 
 # Create target with -O3 optimization
 add_executable(main_O3

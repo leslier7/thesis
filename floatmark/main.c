@@ -10,7 +10,7 @@
 int main(void) {
 
     stdio_init_all();
-    sleep_ms(5000);
+    //sleep_ms(5000);
     printf("Hello Floatmark!\n");
 
     //Used to confirm which arch is running
