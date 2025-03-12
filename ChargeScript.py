@@ -22,21 +22,27 @@ def main(file_name):
         if current_instance['time']:
             instances.append(current_instance)
 
-        total_time = 0
-        total_current = 0
-        total_charge = 0
-        for index, instance in enumerate(instances, start=1):
-            time = instance['time']
-            current = instance['current']
-            time_diff = time[-1] - time[0]
-            total_time += time_diff
-            total_current += sum(current)
-            charge = np.trapezoid(current, time) / 1000
-            total_charge += charge
-            print(f'Instance {index} time: {time_diff} ms')
-            print(f'Instance current: {sum(current)} uA')
-            print(f'Instance charge: {charge} uC')
-            print('-------------------')
+        charge_file_name = file_name.replace('.csv', '_Charge.csv')
+        with open(charge_file_name, 'w', newline='') as outputcsvfile:
+            writer = csv.writer(outputcsvfile)
+            writer.writerow(['Instance', 'Charge (uC)'])
+            total_time = 0
+            total_current = 0
+            total_charge = 0
+            for index, instance in enumerate(instances, start=1):
+                time = instance['time']
+                current = instance['current']
+                time_diff = time[-1] - time[0]
+                total_time += time_diff
+                total_current += sum(current)
+                charge = np.trapezoid(current, time) / 1000
+                total_charge += charge
+                writer.writerow([index, total_charge])
+                print(f'Instance {index} time: {time_diff} ms')
+                print(f'Instance current: {sum(current)} uA')
+                print(f'Instance charge: {charge} uC')
+                print('-------------------')
+
 
 
 if __name__ == '__main__':
