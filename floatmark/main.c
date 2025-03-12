@@ -258,7 +258,8 @@ int main(void) {
     printf("Instructions executed: %llu\n", instructions2-instructions1);
     printf("Clock cycles: %llu\n", cycles2-cycles1);
 
-    printf("\nEnd of Floatmark\n");
+    //Put this at the end of all benchmarks to help the data collector
+    printf("\nEnd of benchmark\n");
 
     //Put this at the end because picotool doesn't like connecting after main finishes
     while(true);

@@ -42,6 +42,8 @@ def main(file_name):
                 print(f'Instance current: {sum(current)} uA')
                 print(f'Instance charge: {charge} uC')
                 print('-------------------')
+            outputcsvfile.close()
+
 
 
 
