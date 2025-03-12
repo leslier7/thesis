@@ -8,16 +8,19 @@ def main(file_name, port):
 
     with open(file_name, 'a') as file:
         writer = csv.writer(file)
-        writer.writerow(["Test", "# Instructions", "# Clock Cycles", "", "Total Time Taken (mS)"])
+        writer.writerow(["Run", "Test", "# Instructions", "# Clock Cycles", "", "Total Time Taken (mS)"])
 
         i = 0
-        tests = ["Float addition", "Float Subtraction"]
+        run = 0
         while True:
             line = serial_connection.readline().decode('utf-8').strip()
-            if line == "End of benchmark":
-                file.close()
-                break
+
             #print(line)
+
+            if "ARM" in line or "RISCV" in line:
+                print("ARM Run: ", run)
+                writer.writerow([])
+                run += 1
 
 
             if "results" in line.lower():
@@ -34,7 +37,11 @@ def main(file_name, port):
                 print("Clock cycles: ", clock_cycles)
                 print("")
                 i += 1
-                writer.writerow([test, instructions, clock_cycles, "", time_taken])
+                writer.writerow([run, test, instructions, clock_cycles, "", time_taken])
+
+            if (run == 3) and (line == "End of benchmark"):
+                file.close()
+                break
 
 
 if __name__ == '__main__':

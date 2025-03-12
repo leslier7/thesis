@@ -1,8 +1,10 @@
 import csv
 import argparse
 import numpy as np
+import os
+import re
 
-def main(file_name):
+def process_file(file_name, output_folder):
     with open(file_name, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         instances = []
@@ -22,7 +24,7 @@ def main(file_name):
         if current_instance['time']:
             instances.append(current_instance)
 
-        charge_file_name = file_name.replace('.csv', '_Charge.csv')
+        charge_file_name = os.path.join(output_folder, os.path.basename(file_name).replace('.csv', '_Charge.csv'))
         with open(charge_file_name, 'w', newline='') as outputcsvfile:
             writer = csv.writer(outputcsvfile)
             writer.writerow(['Instance', 'Charge (uC)'])
@@ -42,13 +44,19 @@ def main(file_name):
                 print(f'Instance current: {sum(current)} uA')
                 print(f'Instance charge: {charge} uC')
                 print('-------------------')
+                if index == len(instances):
+                    print('')
             outputcsvfile.close()
 
-
-
+def main(folder_path):
+    output_folder = os.path.join(folder_path, 'Outputs')
+    os.makedirs(output_folder, exist_ok=True)
+    for file_name in os.listdir(folder_path):
+        if re.search(r'Run\d+\.csv', file_name):
+            process_file(os.path.join(folder_path, file_name), output_folder)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Process a CSV file.')
-    parser.add_argument('file_name', type=str, help='The CSV file to process')
+    parser = argparse.ArgumentParser(description='Process all CSV files in a folder.')
+    parser.add_argument('folder_path', type=str, help='The folder containing CSV files to process')
     args = parser.parse_args()
-    main(args.file_name)
+    main(args.folder_path)
