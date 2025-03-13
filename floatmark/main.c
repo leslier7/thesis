@@ -24,7 +24,9 @@ int main(void) {
 
     initPowerTesting();
     enableClockCount();
-    
+
+    startBenchmark();
+    sleep_ms(50);
     //Variables used for testing operations. _f means float and _d means double
     float a_f, b_f, c_f;
     double a_d, b_d, c_d;
@@ -260,7 +262,8 @@ int main(void) {
 
     //Put this at the end of all benchmarks to help the data collector
     printf("\nEnd of benchmark\n");
-
+    sleep_ms(50);
+    stopBenchmark();
     //Put this at the end because picotool doesn't like connecting after main finishes
     while(true);
 }

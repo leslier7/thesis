@@ -11,4 +11,8 @@ void startPowerTesting();
 
 void stopPowerTesting();
 
+void startBenchmark();
+
+void stopBenchmark();
+
 #endif //FEATURETESTING_POWERFUNCTIONS_H
