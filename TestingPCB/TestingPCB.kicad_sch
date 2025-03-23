@@ -5270,6 +5270,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer Part Number" "M20-8891045"
+			(at 151.13 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "66b61778-907c-435d-9a9e-3b5c62144ffd")
 		)
@@ -6655,6 +6664,15 @@
 			)
 		)
 		(property "Description" "USB to UART master bridge, QFN-20"
+			(at 83.82 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CP2102N-A02-GQFN20R"
 			(at 83.82 132.08 0)
 			(effects
 				(font
