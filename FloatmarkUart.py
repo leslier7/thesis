@@ -39,7 +39,7 @@ def main(file_name, port):
                 i += 1
                 writer.writerow([run, test, instructions, clock_cycles, "", time_taken])
 
-            if (run == 3) and (line == "End of benchmark"):
+            if (run == 10) and (line == "End of benchmark"):
                 file.close()
                 break
 
