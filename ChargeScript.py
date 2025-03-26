@@ -52,7 +52,7 @@ def main(folder_path):
     output_folder = os.path.join(folder_path, 'Outputs')
     os.makedirs(output_folder, exist_ok=True)
     for file_name in os.listdir(folder_path):
-        if re.search(r'Run\d+\.csv', file_name):
+        if file_name.endswith('.csv'):
             process_file(os.path.join(folder_path, file_name), output_folder)
 
 if __name__ == '__main__':
