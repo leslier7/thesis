@@ -17,11 +17,14 @@ def main(file_name, port):
 
             #print(line)
 
-            if "ARM" in line or "RISCV" in line:
-                print("ARM Run: ", run)
+            if "ARM" in line:
+                print("ARM Run: ", run+1)
                 writer.writerow([])
                 run += 1
-
+            elif "RISC-V" in line:
+                print("RISC-V Run: ", run+1)
+                writer.writerow([])
+                run += 1
 
             if "results" in line.lower():
                 test = line.split("Results:")[0].strip()
@@ -41,6 +44,8 @@ def main(file_name, port):
 
             if (run == 10) and (line == "End of benchmark"):
                 file.close()
+                print("End of benchmark")
+                print("")
                 break
 
 
