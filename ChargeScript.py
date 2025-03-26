@@ -7,46 +7,53 @@ import re
 def process_file(file_name, output_folder):
     with open(file_name, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-        instances = []
-        current_instance = {'time': [], 'current': []}
+        runs = []
+        current_runs = []
+        current_test = {'time': [], 'current': []}
         for row in reader:
             timestamp = float(row['Timestamp(ms)'])
             current = float(row['Current(uA)'])
-            if row['D0'] == '1':
-                if not current_instance['time']:
-                    current_instance['start_time'] = timestamp
-                current_instance['time'].append(timestamp)
-                current_instance['current'].append(current)
+            if row['D1'] == '1':
+                if row['D0'] == '1':
+                    if not current_test['time']:
+                        current_test['start_time'] = timestamp
+                    current_test['time'].append(timestamp)
+                    current_test['current'].append(current)
+                else:
+                    if current_test['time']:
+                        current_runs.append(current_test)
+                        current_test = {'time': [], 'current': []}
             else:
-                if current_instance['time']:
-                    instances.append(current_instance)
-                    current_instance = {'time': [], 'current': []}
-        if current_instance['time']:
-            instances.append(current_instance)
+                if current_runs:
+                    runs.append(current_runs)
+                    current_runs = []
+        if current_test['time']:
+            current_runs.append(current_test)
+        if current_runs:
+            runs.append(current_runs)
 
         charge_file_name = os.path.join(output_folder, os.path.basename(file_name).replace('.csv', '_Charge.csv'))
         with open(charge_file_name, 'w', newline='') as outputcsvfile:
             writer = csv.writer(outputcsvfile)
-            writer.writerow(['Instance', 'Charge (uC)'])
-            total_time = 0
-            total_current = 0
-            total_charge = 0
-            for index, instance in enumerate(instances, start=1):
-                time = instance['time']
-                current = instance['current']
-                time_diff = time[-1] - time[0]
-                total_time += time_diff
-                total_current += sum(current)
-                charge = np.trapezoid(current, time) / 1000
-                total_charge += charge
-                writer.writerow([index, total_charge])
-                print(f'Instance {index} time: {time_diff} ms')
-                print(f'Instance current: {sum(current)} uA')
-                print(f'Instance charge: {charge} uC')
+            writer.writerow(['Test', 'Run', 'Time (ms)', 'Charge (uC)'])
+
+            test_dict = {}
+            for run_index, run in enumerate(runs, start=1):
+                for test_index, test in enumerate(run, start=1):
+                    if test_index not in test_dict:
+                        test_dict[test_index] = []
+                    test_dict[test_index].append((run_index, test))
+
+            for test_index, tests in test_dict.items():
+                for run_index, test in tests:
+                    time = test['time']
+                    current = test['current']
+                    time_diff = time[-1] - time[0]
+                    charge = np.trapezoid(current, time) / 1000
+                    writer.writerow([test_index, run_index, time_diff, charge])
+                    print(f'Test {test_index} Run {run_index} time: {time_diff} ms')
+                    print(f'Test {test_index} Run {run_index} charge: {charge} uC')
                 print('-------------------')
-                if index == len(instances):
-                    print('')
-            outputcsvfile.close()
 
 def main(folder_path):
     output_folder = os.path.join(folder_path, 'Outputs')
