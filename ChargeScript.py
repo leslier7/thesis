@@ -35,7 +35,7 @@ def process_file(file_name, output_folder):
         charge_file_name = os.path.join(output_folder, os.path.basename(file_name).replace('.csv', '_Charge.csv'))
         with open(charge_file_name, 'w', newline='') as outputcsvfile:
             writer = csv.writer(outputcsvfile)
-            writer.writerow(['Test', 'Run', 'Time (ms)', 'Charge (uC)'])
+            writer.writerow(['Test', 'Run', 'Charge (uC)', 'Time (ms)'])
 
             test_dict = {}
             for run_index, run in enumerate(runs, start=1):
@@ -50,9 +50,10 @@ def process_file(file_name, output_folder):
                     current = test['current']
                     time_diff = time[-1] - time[0]
                     charge = np.trapezoid(current, time) / 1000
-                    writer.writerow([test_index, run_index, time_diff, charge])
+                    writer.writerow([test_index, run_index, charge, time_diff])
                     print(f'Test {test_index} Run {run_index} time: {time_diff} ms')
                     print(f'Test {test_index} Run {run_index} charge: {charge} uC')
+                writer.writerow([]) # Add a spacer row
                 print('-------------------')
 
 def main(folder_path):
