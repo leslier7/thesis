@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include "hardware/structs/otp.h"
 #include "pico/stdlib.h"
-#include "powman_example.h"
 #include "instruction_count.h"
+#include "power_functions.h"
 
 /* The printf's may be removed to isolate just the math calculations */
 
@@ -26,57 +26,44 @@ int main(void) {
 
     uint32_t archReg = otp_hw->archsel_status;
     bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
-
-    const uint LED_PIN = PICO_DEFAULT_LED_PIN;
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, GPIO_OUT);
-
-    if(arch){
-        gpio_put(LED_PIN, 1);
+    if (arch) {
+        printf("Hello from RISC-V!\n");
+    } else {
+        printf("Hello from ARM!\n");
     }
 
 
-    /*//Testing the instruction counter (RISC only)
-    #if ARCH_RISC
-    printf("Hello from RISC-V\n");
-    int temp = 0;
-    enable_instruction_counting();
-    uint32_t instructions = read_instructions();
-    printf("%lu\n", instructions);
-    temp++;
-    instructions = read_instructions();
-    printf("%lu\n", instructions);
-    //while(1){
+//    const uint LED_PIN = PICO_DEFAULT_LED_PIN;
+//    gpio_init(LED_PIN);
+//    gpio_set_dir(LED_PIN, GPIO_OUT);
+//
+//    if(arch){
+//        gpio_put(LED_PIN, 1);
+//    }
 
-    //}
-
-    #endif*/
-
-    //Enabling the clock counter on the ARM cores
-    // Enabling the clock counter on the ARM cores
-#if ARCH_ARM
+    initPowerTesting();
     enableClockCount();
-    uint32_t structCount = cycleCount();
-    printf("Clock cycles from struct: %lu\n", structCount);
-#elif ARCH_RISC
-    // enableClockCount();
-    printf("Risc-V\n");
-    cycleCount();
-#endif
 
-    uint64_t endTime;
-    uint64_t startTime = time_us_64();
+    uint64_t time1, time2;
+    uint64_t cycles1, cycles2;
+    uint64_t instructions1, instructions2;
 
-    /*
-    *//* solve some cubic functions *//*
+    startBenchmark();
+    sleep_ms(50);
+
+    startPowerTesting();
+    time1 = time_us_64();
+    cycles1 = cycleCount();
+    instructions1 = numberInstructions();
+    /* solve some cubic functions */
     printf("********* CUBIC FUNCTIONS ***********\n");
-    *//* should get 3 solutions: 2, 6 & 2.5   *//*
+    /* should get 3 solutions: 2, 6 & 2.5   */
     SolveCubic(a1, b1, c1, d1, &solutions, x);
     printf("Solutions:");
     for (i = 0; i < solutions; i++)
         printf(" %f", x[i]);
     printf("\n");
-    *//* should get 1 solution: 2.5           *//*
+    /* should get 1 solution: 2.5           */
     SolveCubic(a2, b2, c2, d2, &solutions, x);
     printf("Solutions:");
     for (i = 0; i < solutions; i++)
@@ -92,7 +79,7 @@ int main(void) {
     for (i = 0; i < solutions; i++)
         printf(" %f", x[i]);
     printf("\n");
-    *//* Now solve some random equations *//*
+    /* Now solve some random equations */
     for (a1 = 1; a1 < 10; a1++) {
         for (b1 = 10; b1 > 0; b1--) {
             for (c1 = 5; c1 < 15; c1 += 0.5) {
@@ -108,7 +95,7 @@ int main(void) {
     }
 
     printf("********* INTEGER SQR ROOTS ***********\n");
-    *//* perform some integer square roots *//*
+    /* perform some integer square roots */
     for (i = 0; i < 1001; ++i) {
         usqrt(i, &q);
         // remainder differs on some machines
@@ -122,31 +109,29 @@ int main(void) {
 
 
     printf("********* ANGLE CONVERSION ***********\n");
-    *//* convert some rads to degrees *//*
+    /* convert some rads to degrees */
     for (X = 0.0; X <= 360.0; X += 1.0)
         printf("%3.0f degrees = %.12f radians\n", X, deg2rad(X));
     puts("");
     for (X = 0.0; X <= (2 * PI + 1e-6); X += (PI / 180))
         printf("%.12f radians = %3.0f degrees\n", X, rad2deg(X));
-    */
-    endTime = time_us_64();
 
-    printf("Time taken: %lld us\n", endTime - startTime);
+    time2 = time_us_64();
+    cycles2 = cycleCount();
+    instructions2 = numberInstructions();
+    stopPowerTesting();
 
-
-    uint32_t clockCyclesPre = cycleCount();
-    printf("Right before instructions");
-    uint32_t instructionsPre = numberInstructions();
-    int tempAdd = 0;
-    tempAdd ++;
-    uint32_t clockCyclesPost = cycleCount();
-    uint32_t instructionsPost = numberInstructions();
-    printf("Clock cycles before add: %lu\n", clockCyclesPre);
-    printf("Clock cycles after add: %lu\n", clockCyclesPost);
-    printf("Instructions before add: %lu\n", instructionsPre);
-    printf("Instructions after add: %lu\n", instructionsPost);
-    printf("Total instructions between add: %lu\n", (instructionsPost - instructionsPre));
+    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
+    printf("Instructions executed: %llu\n", instructions2 - instructions1);
+    printf("Clock cycles: %llu\n", cycles2 - cycles1);
 
 
-    powman_example_off_until_gpio_high(PICO_DEFAULT_LED_PIN);
+    //Put this at the end of all benchmarks to help the data collector
+    printf("\nEnd of benchmark\n");
+    sleep_ms(50);
+    stopBenchmark();
+    //Put this at the end because picotool doesn't like connecting after main finishes
+    while(true);
+
+
 }

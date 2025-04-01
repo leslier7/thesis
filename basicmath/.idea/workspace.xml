@@ -14,12 +14,13 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
+      <config projectName="basicmath" targetName="basicmath_small_O0" />
+      <config projectName="basicmath" targetName="basicmath_small_O3" />
       <config projectName="basicmath" targetName="bs2_default" />
       <config projectName="basicmath" targetName="pioasmBuild" />
       <config projectName="basicmath" targetName="basicmath_large" />
       <config projectName="basicmath" targetName="bs2_default_padded_checksummed_asm" />
       <config projectName="basicmath" targetName="bs2_default_bin" />
-      <config projectName="basicmath" targetName="basicmath_small" />
       <config projectName="basicmath" targetName="cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
     </generated>
   </component>
@@ -27,7 +28,13 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1004a55f-df69-484b-80cc-b296e4ac0cb0" name="Changes" comment="" />
+    <list default="true" id="1004a55f-df69-484b-80cc-b296e4ac0cb0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basicmath_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/basicmath_small.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instruction_count.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_count.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instruction_count.h" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_count.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,9 +86,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;instructions&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;basicmath&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/robbie/Documents/Pico/thesis/basicmath&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -92,13 +100,23 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="CMake Application.basicmath_small">
+  <component name="RunManager" selected="CMake Application.basicmath_small_O3">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="basicmath_large" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="basicmath" TARGET_NAME="basicmath_large" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="basicmath" RUN_TARGET_NAME="basicmath_large">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="basicmath_small" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="basicmath" TARGET_NAME="basicmath_small" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="basicmath" RUN_TARGET_NAME="basicmath_small">
+    <configuration name="basicmath_small_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="basicmath" TARGET_NAME="basicmath_small_O0" CONFIG_NAME="RISC-V" RUN_TARGET_PROJECT_NAME="basicmath" RUN_TARGET_NAME="basicmath_small_O0">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="basicmath_small_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="basicmath" TARGET_NAME="basicmath_small_O3" CONFIG_NAME="RISC-V" RUN_TARGET_PROJECT_NAME="basicmath" RUN_TARGET_NAME="basicmath_small_O3">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -130,7 +148,8 @@
     </configuration>
     <list>
       <item itemvalue="CMake Application.basicmath_large" />
-      <item itemvalue="CMake Application.basicmath_small" />
+      <item itemvalue="CMake Application.basicmath_small_O0" />
+      <item itemvalue="CMake Application.basicmath_small_O3" />
       <item itemvalue="CMake Application.bs2_default" />
       <item itemvalue="CMake Application.bs2_default_bin" />
       <item itemvalue="CMake Application.bs2_default_padded_checksummed_asm" />
@@ -184,6 +203,8 @@
       <workItem from="1733277307710" duration="1000000" />
       <workItem from="1733283396182" duration="598000" />
       <workItem from="1733463871430" duration="623000" />
+      <workItem from="1743042099405" duration="4761000" />
+      <workItem from="1743170265456" duration="316000" />
     </task>
     <servers />
   </component>
