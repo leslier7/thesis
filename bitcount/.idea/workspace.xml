@@ -14,13 +14,15 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="bitcnts" targetName="bitcnts_small" />
+      <config projectName="bitcnts" targetName="bitcnts_small_O3" />
       <config projectName="bitcnts" targetName="bs2_default_bin" />
-      <config projectName="bitcnts" targetName="bs2_default_padded_checksummed_asm" />
+      <config projectName="bitcnts" targetName="bitcnts_large_O0" />
+      <config projectName="bitcnts" targetName="bitcnts_small_O0" />
       <config projectName="bitcnts" targetName="cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
+      <config projectName="bitcnts" targetName="bs2_default_library" />
       <config projectName="bitcnts" targetName="bs2_default" />
       <config projectName="bitcnts" targetName="pioasmBuild" />
-      <config projectName="bitcnts" targetName="bitcnts_large" />
+      <config projectName="bitcnts" targetName="bitcnts_large_O3" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -43,8 +45,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd11b5bd-4ce3-4c54-a98e-401dd901be33" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../basicmath/basicmath_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/basicmath_small.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basicmath/instruction_count.c" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/instruction_count.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FFT/fft_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_small.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcnts_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/bitcnts_large.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcnts_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/bitcnts_small.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,9 +92,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "instructions",
+    "git-widget-placeholder": "benchmark",
     "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/bitcount",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -102,13 +106,28 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="CMake Application.bitcnts_large">
-    <configuration name="bitcnts_large" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bitcnts_large" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_large">
+  <component name="RunManager" selected="CMake Application.bitcnts_small_O0">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bitcnts_large_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bitcnts_large_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_large_O0">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="bitcnts_small" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bitcnts_small" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_small">
+    <configuration name="bitcnts_large_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bitcnts_large_O3" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_large_O3">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bitcnts_small_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bitcnts_small_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_small_O0">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bitcnts_small_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bitcnts_small_O3" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_small_O3">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -123,7 +142,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="bs2_default_padded_checksummed_asm" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bs2_default_padded_checksummed_asm" CONFIG_NAME="ARM">
+    <configuration name="bs2_default_library" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bitcnts" TARGET_NAME="bs2_default_library" CONFIG_NAME="ARM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -139,11 +158,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.bitcnts_large" />
-      <item itemvalue="CMake Application.bitcnts_small" />
+      <item itemvalue="CMake Application.bitcnts_large_O0" />
+      <item itemvalue="CMake Application.bitcnts_large_O3" />
+      <item itemvalue="CMake Application.bitcnts_small_O0" />
+      <item itemvalue="CMake Application.bitcnts_small_O3" />
       <item itemvalue="CMake Application.bs2_default" />
       <item itemvalue="CMake Application.bs2_default_bin" />
-      <item itemvalue="CMake Application.bs2_default_padded_checksummed_asm" />
+      <item itemvalue="CMake Application.bs2_default_library" />
       <item itemvalue="CMake Application.cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
       <item itemvalue="CMake Application.pioasmBuild" />
     </list>
@@ -173,6 +194,7 @@
       <workItem from="1730401273087" duration="599000" />
       <workItem from="1730916132209" duration="1546000" />
       <workItem from="1733193428760" duration="14000" />
+      <workItem from="1743526398837" duration="4637000" />
     </task>
     <servers />
   </component>

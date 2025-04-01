@@ -31,7 +31,7 @@ int main(void) {
     gpio_put(LED_PIN, 1);
 
     stdio_init_all();
-    printf("Starting Bitcounts Small");
+    printf("Starting Bitcounts Small\n");
 
     uint32_t archReg = otp_hw->archsel_status;
     bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
