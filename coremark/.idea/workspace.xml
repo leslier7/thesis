@@ -1,168 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="CMakePresetLoader">{
-  &quot;useNewFormat&quot;: true
-}</component>
-  <component name="CMakeProjectFlavorService">
-    <option name="flavorId" value="CMakePlainProjectFlavor" />
-  </component>
-  <component name="CMakeReloadState">
-    <option name="reloaded" value="true" />
-  </component>
-  <component name="CMakeRunConfigurationManager">
-    <generated />
-  </component>
-  <component name="CMakeSettings" AUTO_RELOAD="true">
-    <configurations>
-      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
-        <ADDITIONAL_GENERATION_ENVIRONMENT>
-          <envs>
-            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
-          </envs>
-        </ADDITIONAL_GENERATION_ENVIRONMENT>
-      </configuration>
-      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv">
-        <ADDITIONAL_GENERATION_ENVIRONMENT>
-          <envs>
-            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
-          </envs>
-        </ADDITIONAL_GENERATION_ENVIRONMENT>
-      </configuration>
-    </configurations>
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../bitcount/.idea/bitcount.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLED/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLED/BlinkLED.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLED/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLED/pico_sdk_import.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/blink2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/pico_sdk_import.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_large.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_large_i.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_large_i.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_small.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_small_i.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_small_i.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorld/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorld/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorld/HelloWorld.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorld/pico_sdk_import.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcount/bitcnts_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/bitcnts_large.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcount/bitcnts_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/bitcnts_small.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/featureTesting.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/instruction_count.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/instruction_count.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/pico_sdk_import.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/powman_example.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/powman_example.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../qsort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../qsort/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../qsort/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../qsort/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../qsort/qsort_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/../qsort/qsort_large.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../qsort/qsort_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../qsort/qsort_small.c" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
-  </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:ARM" />
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;leslier7&quot;
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/eembc/coremark.git&quot;,
-    &quot;accountId&quot;: &quot;e1b9bf33-e62e-4193-a05c-e12bbb68a9ef&quot;
-  }
-}</component>
-  <component name="ProjectApplicationVersion">
-    <option name="ide" value="CLion" />
-    <option name="majorVersion" value="2024" />
-    <option name="minorVersion" value="2.3" />
-    <option name="productBranch" value="Classic" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2oorelP7hCHIU5fYfmfuXxSP5sq" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "benchmark",
-    "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/coremark",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CMakeSettings",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="" />
       <created>1723179708764</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723179708764</updated>
       <workItem from="1723179710477" duration="204000" />
-      <workItem from="1731546868226" duration="3357000" />
-      <workItem from="1731612282524" duration="800000" />
-      <workItem from="1731613899084" duration="8339000" />
-      <workItem from="1743544806496" duration="93000" />
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VCPKGProject">
-    <isAutomaticCheckingOnLaunch value="false" />
-    <isAutomaticFoundErrors value="true" />
-    <isAutomaticReloadCMake value="true" />
   </component>
 </project>

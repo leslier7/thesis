@@ -22,6 +22,9 @@ Original Author: Shay Gal-on
 */
 #include "coremark.h"
 #include "pico/stdlib.h"
+#include "hardware/structs/otp.h"
+#include "instruction_count.h"
+#include "power_functions.h"
 
 /* Function: iterate
         Run the benchmark for a specified number of iterations.
