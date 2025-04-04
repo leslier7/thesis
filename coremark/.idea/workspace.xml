@@ -1,18 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
-  }
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
 }</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="coremark" targetName="coremark_00" />
+      <config projectName="coremark" targetName="bs2_default" />
+      <config projectName="coremark" targetName="pioasmBuild" />
+      <config projectName="coremark" targetName="coremark" />
+      <config projectName="coremark" targetName="cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
+      <config projectName="coremark" targetName="bs2_default_bin" />
+      <config projectName="coremark" targetName="coremark_03" />
+      <config projectName="coremark" targetName="bs2_default_library" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core_main.c" beforeDir="false" afterPath="$PROJECT_DIR$/core_main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core_portme.c" beforeDir="false" afterPath="$PROJECT_DIR$/core_portme.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/READM.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/balance_O0_joined.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/coremark_profile_o0_joined.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "leslier7"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/raspberrypi/pico-sdk.git",
+    "accountId": "e1b9bf33-e62e-4193-a05c-e12bbb68a9ef"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2vF2VQsyOZq62XZNcHdAamp89Ez" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.coremark_03.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/coremark",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="CMake Application.coremark_03">
+    <configuration name="coremark_00" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="coremark" TARGET_NAME="coremark_00" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="coremark" RUN_TARGET_NAME="coremark_00">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="coremark_03" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="coremark" TARGET_NAME="coremark_03" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="coremark" RUN_TARGET_NAME="coremark_03">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.coremark_00" />
+      <item itemvalue="CMake Application.coremark_03" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="" />
       <created>1723179708764</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723179708764</updated>
       <workItem from="1723179710477" duration="204000" />
+      <workItem from="1731546868226" duration="3357000" />
+      <workItem from="1731612282524" duration="800000" />
+      <workItem from="1731613899084" duration="8339000" />
+      <workItem from="1743726526788" duration="7000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
   </component>
 </project>

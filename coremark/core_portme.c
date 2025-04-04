@@ -19,8 +19,11 @@ Original Author: Shay Gal-on
 #include <stdio.h>
 #include <stdlib.h>
 #include "coremark.h"
+#include "instruction_count.h"
+#include "power_functions.h"
+#include "hardware/structs/otp.h"
 
-#define ITERATIONS 3000
+#define ITERATIONS 6000
 
 #if VALIDATION_RUN
 volatile ee_s32 seed1_volatile = 0x3415;
@@ -144,6 +147,19 @@ portable_init(core_portable *p, int *argc, char *argv[])
         ee_printf("ERROR! Please define ee_u32 to a 32b unsigned type!\n");
     }
     p->portable_id = 1;
+
+
+ uint32_t archReg = otp_hw->archsel_status;
+    bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
+    if (arch) {
+        printf("Hello from RISC-V!\n");
+    } else {
+        printf("Hello from ARM!\n");
+    }
+
+    initPowerTesting();
+    enableClockCount();
+    startBenchmark();
 }
 /* Function : portable_fini
         Target specific final code
@@ -152,4 +168,5 @@ void
 portable_fini(core_portable *p)
 {
     p->portable_id = 0;
+    stopBenchmark();
 }
