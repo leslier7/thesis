@@ -9,6 +9,9 @@
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="coremark" targetName="coremark_00" />
@@ -23,14 +26,14 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
+      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350 -DARCH=risc">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv">
+      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv -DARCH=risc">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
@@ -40,16 +43,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core_main.c" beforeDir="false" afterPath="$PROJECT_DIR$/core_main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core_portme.c" beforeDir="false" afterPath="$PROJECT_DIR$/core_portme.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/READM.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/balance_O0_joined.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/coremark_profile_o0_joined.png" beforeDir="false" />
-    </list>
+    <list default="true" id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +54,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
@@ -92,7 +86,7 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "benchmark",
     "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/coremark",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -103,7 +97,17 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="CMake Application.coremark_03">
+  <component name="RunManager" selected="CMake Application.Build">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="coremark" RUN_TARGET_NAME="coremark_00" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="coremark_00" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="coremark" TARGET_NAME="coremark_00" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="coremark" RUN_TARGET_NAME="coremark_00">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -117,6 +121,7 @@
     <list>
       <item itemvalue="CMake Application.coremark_00" />
       <item itemvalue="CMake Application.coremark_03" />
+      <item itemvalue="CMake Application.Build" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -131,7 +136,7 @@
       <workItem from="1731546868226" duration="3357000" />
       <workItem from="1731612282524" duration="800000" />
       <workItem from="1731613899084" duration="8339000" />
-      <workItem from="1743726526788" duration="7000" />
+      <workItem from="1743726526788" duration="4274000" />
     </task>
     <servers />
   </component>
