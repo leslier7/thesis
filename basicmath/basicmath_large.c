@@ -3,12 +3,14 @@
 #include "stdio.h"
 #include "hardware/structs/otp.h"
 #include "pico/stdlib.h"
+#include "power_functions.h"
+#include "instruction_count.h"
 
 /* The printf's may be removed to isolate just the math calculations */
 
 int main(void) {
-
     stdio_init_all();
+    printf("Starting Basicmath Large\n");
     double a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
     double x[3];
     double X;
@@ -18,19 +20,28 @@ int main(void) {
     struct int_sqrt q;
     long n = 0;
 
-    uint32_t archReg = otp_hw->archsel_status;
+   uint32_t archReg = otp_hw->archsel_status;
     bool arch = (archReg & 0x1); //0 is arm and 1 is risc-v
-
-    const uint LED_PIN = PICO_DEFAULT_LED_PIN;
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, GPIO_OUT);
-
-    if(arch){
-        gpio_put(LED_PIN, 1);
+    if (arch) {
+        printf("Hello from RISC-V!\n");
+    } else {
+        printf("Hello from ARM!\n");
     }
 
-    uint64_t startTime = time_us_64();
-    uint64_t endTime;
+    initPowerTesting();
+    enableClockCount();
+
+    uint64_t time1, time2;
+    uint64_t cycles1, cycles2;
+    uint64_t instructions1, instructions2;
+
+    startBenchmark();
+    sleep_ms(50);
+
+    startPowerTesting();
+    time1 = time_us_64();
+    cycles1 = cycleCount();
+    instructions1 = numberInstructions();
 
     /* solve soem cubic functions */
     printf("********* CUBIC FUNCTIONS ***********\n");
@@ -155,9 +166,20 @@ int main(void) {
     for (X = 0.0; X <= (2 * PI + 1e-6); X += (PI / 5760))
         printf("%.12f radians = %3.0f degrees\n", X, rad2deg(X));
 
-    endTime = time_us_64();
+    time2 = time_us_64();
+    cycles2 = cycleCount();
+    instructions2 = numberInstructions();
+    stopPowerTesting();
 
-    printf("Time taken: %lld us\n", endTime - startTime);
+    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
+    printf("Instructions executed: %llu\n", instructions2 - instructions1);
+    printf("Clock cycles: %llu\n", cycles2 - cycles1);
 
-    return 0;
+
+    //Put this at the end of all benchmarks to help the data collector
+    printf("\nEnd of benchmark\n");
+    sleep_ms(50);
+    stopBenchmark();
+    //Put this at the end because picotool doesn't like connecting after main finishes
+    while(true);
 }

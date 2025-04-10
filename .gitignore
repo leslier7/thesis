@@ -6,6 +6,7 @@ build
 build-*
 launch.json
 MiBench
+results
 
 # Format documentation: https://kicad.org/help/file-formats/
 

@@ -15,26 +15,30 @@
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="FFT" targetName="bs2_default" />
-      <config projectName="FFT" targetName="cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
-      <config projectName="FFT" targetName="fft_large_i" />
-      <config projectName="FFT" targetName="fft_large" />
       <config projectName="FFT" targetName="pioasmBuild" />
       <config projectName="FFT" targetName="bs2_default_bin" />
-      <config projectName="FFT" targetName="fft_small_i" />
-      <config projectName="FFT" targetName="bs2_default_padded_checksummed_asm" />
-      <config projectName="FFT" targetName="fft_small" />
+      <config projectName="FFT" targetName="bs2_default_library" />
+      <config projectName="FFT" targetName="fft_large_O3" />
+      <config projectName="FFT" targetName="fft_large_O0" />
+      <config projectName="FFT" targetName="cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
+      <config projectName="FFT" targetName="fft_small_i_O3" />
+      <config projectName="FFT" targetName="fft_large_i_O0" />
+      <config projectName="FFT" targetName="fft_small_i_O0" />
+      <config projectName="FFT" targetName="fft_large_i_O3" />
+      <config projectName="FFT" targetName="fft_small_O0" />
+      <config projectName="FFT" targetName="fft_small_O3" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
+      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350  -DARCH=arm">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_ PATH" value="$PROJECT_DIR$/../../pico-sdk" />
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv">
+      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv -DARCH=risc">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_ PATH" value="$PROJECT_DIR$/../../pico-sdk" />
@@ -44,7 +48,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="734b0eb3-d502-4c8a-8481-180740ebc387" name="Changes" comment="" />
+    <list default="true" id="734b0eb3-d502-4c8a-8481-180740ebc387" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +61,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:ARM" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -90,9 +98,10 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;instructions&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;benchmark&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/robbie/Documents/Pico/thesis/FFT&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -108,7 +117,12 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.fft_small">
+  <component name="RunManager" selected="CMake Application.Build">
+    <configuration name="Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_i_O0" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="bs2_default" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="bs2_default" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="bs2_default">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -119,7 +133,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="bs2_default_padded_checksummed_asm" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="bs2_default_padded_checksummed_asm" CONFIG_NAME="ARM">
+    <configuration name="bs2_default_library" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="bs2_default_library" CONFIG_NAME="ARM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -129,22 +143,42 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fft_large" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_large" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large">
+    <configuration name="fft_large_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_large_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_O0">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fft_large_i" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_large_i" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_i">
+    <configuration name="fft_large_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_large_O3" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_O3">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fft_small" type="CMakeRunConfiguration" factoryName="Application" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_small" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_small">
+    <configuration name="fft_large_i_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_large_i_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_i_O0">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fft_small_i" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_small_i" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_small_i">
+    <configuration name="fft_large_i_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_large_i_O3" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_i_O3">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fft_small_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_small_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_small_O0">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fft_small_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_small_O3" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_small_O3">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fft_small_i_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_small_i_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_small_i_O0">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fft_small_i_O3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FFT" TARGET_NAME="fft_small_i_O3" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_small_i_O3">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -155,21 +189,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="CMake Application.Build" />
       <item itemvalue="CMake Application.bs2_default" />
       <item itemvalue="CMake Application.bs2_default_bin" />
-      <item itemvalue="CMake Application.bs2_default_padded_checksummed_asm" />
+      <item itemvalue="CMake Application.bs2_default_library" />
       <item itemvalue="CMake Application.cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
-      <item itemvalue="CMake Application.fft_large" />
-      <item itemvalue="CMake Application.fft_large_i" />
-      <item itemvalue="CMake Application.fft_small" />
-      <item itemvalue="CMake Application.fft_small_i" />
+      <item itemvalue="CMake Application.fft_large_O0" />
+      <item itemvalue="CMake Application.fft_large_O3" />
+      <item itemvalue="CMake Application.fft_large_i_O0" />
+      <item itemvalue="CMake Application.fft_large_i_O3" />
+      <item itemvalue="CMake Application.fft_small_O0" />
+      <item itemvalue="CMake Application.fft_small_O3" />
+      <item itemvalue="CMake Application.fft_small_i_O0" />
+      <item itemvalue="CMake Application.fft_small_i_O3" />
       <item itemvalue="CMake Application.pioasmBuild" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="CMake Application.fft_small" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -186,6 +220,9 @@
       <workItem from="1731262867764" duration="366000" />
       <workItem from="1739907259820" duration="3501000" />
       <workItem from="1739985672746" duration="15000" />
+      <workItem from="1743542327343" duration="1548000" />
+      <workItem from="1743726529826" duration="432000" />
+      <workItem from="1744306804198" duration="42000" />
     </task>
     <servers />
   </component>

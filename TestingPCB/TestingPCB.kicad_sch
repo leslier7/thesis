@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Thesis PCB")
-		(date "2025-03-10")
-		(rev "v1.0")
+		(date "2025-04-08")
+		(rev "v1.1")
 		(company "Lafayette College Electrical & Computer Engineering Department")
 		(comment 1 "By Robbie Leslie")
 	)
@@ -3794,16 +3794,6 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 25.4) (xy 165.1 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a2d585f-ae5f-4c33-9e6f-b24e304df508")
-	)
-	(wire
-		(pts
 			(xy 74.93 44.45) (xy 74.93 43.18)
 		)
 		(stroke
@@ -3861,6 +3851,16 @@
 			(type default)
 		)
 		(uuid "3b3303da-5d10-4a65-90b1-60dea5ff65dd")
+	)
+	(wire
+		(pts
+			(xy 154.94 25.4) (xy 165.1 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41b4c96f-01e7-4f44-a743-da5c53c99478")
 	)
 	(wire
 		(pts
@@ -4544,16 +4544,6 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 27.94) (xy 165.1 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d6f6ae06-2a8e-4160-b6ed-c6b32939629c")
-	)
-	(wire
-		(pts
 			(xy 124.46 115.57) (xy 124.46 119.38)
 		)
 		(stroke
@@ -4571,6 +4561,16 @@
 			(type default)
 		)
 		(uuid "dcf694ed-405a-4c43-9411-7b81ee438b18")
+	)
+	(wire
+		(pts
+			(xy 154.94 27.94) (xy 165.1 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e072baed-9086-42f2-97fa-d301ffb19149")
 	)
 	(wire
 		(pts
@@ -4713,7 +4713,7 @@
 		(uuid "03d24020-acac-4d33-a6c9-831fc7f7888d")
 	)
 	(label "5V"
-		(at 165.1 25.4 0)
+		(at 165.1 27.94 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4743,7 +4743,7 @@
 		(uuid "230f79bd-71e0-4496-8306-111f21893b69")
 	)
 	(label "GND"
-		(at 165.1 27.94 0)
+		(at 165.1 25.4 0)
 		(effects
 			(font
 				(size 1.27 1.27)
