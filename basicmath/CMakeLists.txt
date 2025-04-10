@@ -67,7 +67,7 @@ pico_add_extra_outputs(basicmath_small_O0)
 pico_enable_stdio_usb(basicmath_small_O0 ${USB_ENABLE})
 pico_enable_stdio_uart(basicmath_small_O0 ${UART_ENABLE})
 
-add_executable(basicmath_large
+add_executable(basicmath_large_O3
         basicmath_large.c
         snipmath.h
         round.h
@@ -75,10 +75,33 @@ add_executable(basicmath_large
         cubic.c
         isqrt.c
         rad2deg.c
-        powman_example.c
         instruction_count.c
         instruction_count.h
+        power_functions.c
 )
+target_compile_options(basicmath_large_O3 PRIVATE -O3)
+target_link_libraries(basicmath_large_O3 pico_stdlib pico_bootsel_via_double_reset)
+pico_add_extra_outputs(basicmath_large_O3)
+pico_enable_stdio_usb(basicmath_large_O3 ${USB_ENABLE})
+pico_enable_stdio_uart(basicmath_large_O3 ${UART_ENABLE})
+
+add_executable(basicmath_large_O0
+        basicmath_large.c
+        snipmath.h
+        round.h
+        sniptype.h
+        cubic.c
+        isqrt.c
+        rad2deg.c
+        instruction_count.c
+        instruction_count.h
+        power_functions.c
+)
+target_compile_options(basicmath_large_O0 PRIVATE -O0)
+target_link_libraries(basicmath_large_O0 pico_stdlib pico_bootsel_via_double_reset)
+pico_add_extra_outputs(basicmath_large_O0)
+pico_enable_stdio_usb(basicmath_large_O0 ${USB_ENABLE})
+pico_enable_stdio_uart(basicmath_large_O0 ${UART_ENABLE})
 
 # pull in common dependencies
 #target_link_libraries(basicmath_small pico_stdlib hardware_powman pico_bootsel_via_double_reset)

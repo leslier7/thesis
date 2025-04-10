@@ -2,9 +2,22 @@ import csv
 import serial
 import argparse
 
+def write_header_if_needed(file_name, header):
+    with open(file_name, 'r') as file:
+        content = file.readlines()
+
+    if header + '\n' not in content:
+        with open(file_name, 'w') as file:
+            file.write(header + '\n')
+            file.writelines(content)
+
+
+
 def main(file_name, port):
     baudrate = 115200
     serial_connection = serial.Serial(port, baudrate)
+
+    arch_written = False
 
     with open(file_name, 'a') as file:
         writer = csv.writer(file)
@@ -18,12 +31,16 @@ def main(file_name, port):
             #print(line)
 
             if "ARM" in line:
-                print("ARM Run: ", run+1)
-                writer.writerow([])
+                if not arch_written:
+                    write_header_if_needed(file_name, "ARM")
+                    arch_written = True
+                print("ARM Run: ", run + 1)
                 run += 1
             elif "RISC-V" in line:
-                print("RISC-V Run: ", run+1)
-                writer.writerow([])
+                if not arch_written:
+                    write_header_if_needed(file_name, "RISC-V")
+                    arch_written = True
+                print("RISC-V Run: ", run + 1)
                 run += 1
 
             if "results" in line.lower():

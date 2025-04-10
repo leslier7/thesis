@@ -11,7 +11,7 @@
 int main(void) {
 
     stdio_init_all();
-    printf("Starting Basicmath\n");
+    printf("Starting Basicmath Small\n");
     double a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
     double a2 = 1.0, b2 = -4.5, c2 = 17.0, d2 = -30.0;
     double a3 = 1.0, b3 = -3.5, c3 = 22.0, d3 = -31.0;
@@ -120,7 +120,7 @@ int main(void) {
     cycles2 = cycleCount();
     instructions2 = numberInstructions();
     stopPowerTesting();
-
+    printf("Basicmath Small Results: \n");
     printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
     printf("Instructions executed: %llu\n", instructions2 - instructions1);
     printf("Clock cycles: %llu\n", cycles2 - cycles1);
