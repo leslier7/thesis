@@ -49,15 +49,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="734b0eb3-d502-4c8a-8481-180740ebc387" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../coremark/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coremark/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coremark/core_main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/core_main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coremark/core_portme.c" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/core_portme.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coremark/docs/READM.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coremark/docs/balance_O0_joined.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coremark/docs/coremark_profile_o0_joined.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +61,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:ARM" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -124,11 +118,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Build">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="FFT" RUN_TARGET_NAME="fft_large_i_O0" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -200,19 +189,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.fft_large_i_O0" />
       <item itemvalue="CMake Application.Build" />
-      <item itemvalue="CMake Application.fft_large_i_O3" />
-      <item itemvalue="CMake Application.fft_large_O0" />
-      <item itemvalue="CMake Application.fft_large_O3" />
-      <item itemvalue="CMake Application.fft_small_i_O0" />
-      <item itemvalue="CMake Application.fft_small_i_O3" />
-      <item itemvalue="CMake Application.fft_small_O0" />
-      <item itemvalue="CMake Application.fft_small_O3" />
       <item itemvalue="CMake Application.bs2_default" />
       <item itemvalue="CMake Application.bs2_default_bin" />
       <item itemvalue="CMake Application.bs2_default_library" />
       <item itemvalue="CMake Application.cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
+      <item itemvalue="CMake Application.fft_large_O0" />
+      <item itemvalue="CMake Application.fft_large_O3" />
+      <item itemvalue="CMake Application.fft_large_i_O0" />
+      <item itemvalue="CMake Application.fft_large_i_O3" />
+      <item itemvalue="CMake Application.fft_small_O0" />
+      <item itemvalue="CMake Application.fft_small_O3" />
+      <item itemvalue="CMake Application.fft_small_i_O0" />
+      <item itemvalue="CMake Application.fft_small_i_O3" />
       <item itemvalue="CMake Application.pioasmBuild" />
     </list>
   </component>
@@ -233,6 +222,7 @@
       <workItem from="1739985672746" duration="15000" />
       <workItem from="1743542327343" duration="1548000" />
       <workItem from="1743726529826" duration="432000" />
+      <workItem from="1744306804198" duration="42000" />
     </task>
     <servers />
   </component>

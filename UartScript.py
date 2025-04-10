@@ -63,6 +63,8 @@ def main(file_name, port):
                 file.close()
                 print("End of benchmark")
                 print("")
+                print("File name: ", file_name)
+                print("")
                 break
 
 

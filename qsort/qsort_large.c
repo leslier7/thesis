@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
     FILE *fp;
     int i, count = 0;
     int x, y, z;
+    argc = 3
 
     if (argc < 2) {
         fprintf(stderr, "Usage: qsort_large <file>\n");

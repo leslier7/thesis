@@ -27,27 +27,27 @@ set(UART_ENABLE 1)
 set(USB_ENABLE 0)
 
 # Create target with -O3 optimization
-add_executable(main_O3
+add_executable(floatmark_div_O3
         main.c
         instruction_count.c
         instruction_count.h
         power_functions.c
 )
-target_compile_options(main_O3 PRIVATE -O3)
-target_link_libraries(main_O3 pico_stdlib hardware_powman pico_bootsel_via_double_reset)
-pico_add_extra_outputs(main_O3)
-pico_enable_stdio_usb(main_O3 ${USB_ENABLE})
-pico_enable_stdio_uart(main_O3 ${UART_ENABLE})
+target_compile_options(floatmark_div_O3 PRIVATE -O3)
+target_link_libraries(floatmark_div_O3 pico_stdlib hardware_powman pico_bootsel_via_double_reset)
+pico_add_extra_outputs(floatmark_div_O3)
+pico_enable_stdio_usb(floatmark_div_O3 ${USB_ENABLE})
+pico_enable_stdio_uart(floatmark_div_O3 ${UART_ENABLE})
 
 # Create target with -O0 optimization
-add_executable(main_O0
+add_executable(floatmark_div_O0
         main.c
         instruction_count.c
         instruction_count.h
         power_functions.c
 )
-target_compile_options(main_O0 PRIVATE -O0)
-target_link_libraries(main_O0 pico_stdlib hardware_powman pico_bootsel_via_double_reset)
-pico_add_extra_outputs(main_O0)
-pico_enable_stdio_usb(main_O0 ${USB_ENABLE})
-pico_enable_stdio_uart(main_O0 ${UART_ENABLE})
+target_compile_options(floatmark_div_O0 PRIVATE -O0)
+target_link_libraries(floatmark_div_O0 pico_stdlib hardware_powman pico_bootsel_via_double_reset)
+pico_add_extra_outputs(floatmark_div_O0)
+pico_enable_stdio_usb(floatmark_div_O0 ${USB_ENABLE})
+pico_enable_stdio_uart(floatmark_div_O0 ${UART_ENABLE})

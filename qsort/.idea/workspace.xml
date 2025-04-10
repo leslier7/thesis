@@ -45,38 +45,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3579f79e-93fd-44d6-8908-42be795c5381" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../bitcount/.idea/bitcount.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/blink2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlinkLEDArch/pico_sdk_import.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_large.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_large_i.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_large_i.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_small.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FFT/fft_small_i.c" beforeDir="false" afterPath="$PROJECT_DIR$/../FFT/fft_small_i.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FloatmarkUart.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UartScript.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/basicmath.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/cmake.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/basicmath_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/basicmath_large.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/basicmath_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/basicmath_small.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcount/bitcnts_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/bitcnts_large.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcount/bitcnts_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/bitcnts_small.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/featureTesting.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/instruction_count.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/instruction_count.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/pico_sdk_import.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/powman_example.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../featureTesting/powman_example.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qsort_large.c" beforeDir="false" afterPath="$PROJECT_DIR$/qsort_large.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qsort_small.c" beforeDir="false" afterPath="$PROJECT_DIR$/qsort_small.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +69,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:ARM" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -116,31 +99,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.west.config.association.type.startup.service": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "benchmark",
-    "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/qsort",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CMakeSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;benchmark&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/robbie/Documents/Pico/thesis/qsort&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="CMake Application.Build">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="qsort" RUN_TARGET_NAME="qsort_large_O0" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -196,6 +174,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="qsort_large" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="qsort" TARGET_NAME="qsort_large" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="qsort" RUN_TARGET_NAME="qsort_large">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="qsort_large_O0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="qsort" TARGET_NAME="qsort_large_O0" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="qsort" RUN_TARGET_NAME="qsort_large_O0">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -206,7 +189,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="qsort_large" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="qsort" TARGET_NAME="qsort_large" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="qsort" RUN_TARGET_NAME="qsort_large">
+    <configuration name="qsort_small" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="qsort" TARGET_NAME="qsort_small" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="qsort" RUN_TARGET_NAME="qsort_small">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -221,22 +204,20 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="qsort_small" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="qsort" TARGET_NAME="qsort_small" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="qsort" RUN_TARGET_NAME="qsort_small">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="CMake Application.qsort_large_O0" />
       <item itemvalue="CMake Application.Build" />
-      <item itemvalue="CMake Application.qsort_large_O3" />
-      <item itemvalue="CMake Application.qsort_small_O0" />
-      <item itemvalue="CMake Application.qsort_small_O3" />
       <item itemvalue="CMake Application.bs2_default" />
       <item itemvalue="CMake Application.bs2_default_bin" />
       <item itemvalue="CMake Application.bs2_default_library" />
+      <item itemvalue="CMake Application.bs2_default_padded_checksummed_asm" />
       <item itemvalue="CMake Application.cyw43_driver_picow_cyw43_bus_pio_spi_pio_h" />
       <item itemvalue="CMake Application.pioasmBuild" />
+      <item itemvalue="CMake Application.qsort_large_O0" />
+      <item itemvalue="CMake Application.qsort_large_O3" />
+      <item itemvalue="CMake Application.qsort_large" />
+      <item itemvalue="CMake Application.qsort_small_O0" />
+      <item itemvalue="CMake Application.qsort_small_O3" />
+      <item itemvalue="CMake Application.qsort_small" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -267,6 +248,8 @@
       <workItem from="1730401271333" duration="608000" />
       <workItem from="1730916134391" duration="597000" />
       <workItem from="1743543946067" duration="679000" />
+      <workItem from="1744306992968" duration="360000" />
+      <workItem from="1744313747848" duration="9000" />
     </task>
     <servers />
   </component>

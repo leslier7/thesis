@@ -26,7 +26,7 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350 -DARCH=risc">
+      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" CONFIG_NAME="ARM" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350 -DARCH=arm">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
@@ -44,7 +44,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad963bfb-4722-4063-a1ad-afc93050996c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcount/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:ARM" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -88,7 +89,7 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "floatmarkSplit",
+    "git-widget-placeholder": "benchmark",
     "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/coremark",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -100,6 +101,11 @@
   }
 }]]></component>
   <component name="RunManager" selected="CMake Application.Build">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="coremark" RUN_TARGET_NAME="coremark_00" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -135,6 +141,7 @@
       <workItem from="1731613899084" duration="8339000" />
       <workItem from="1743726526788" duration="4274000" />
       <workItem from="1744123714318" duration="4000" />
+      <workItem from="1744306526366" duration="103000" />
     </task>
     <servers />
   </component>
