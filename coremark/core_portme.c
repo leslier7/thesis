@@ -168,5 +168,10 @@ void
 portable_fini(core_portable *p)
 {
     p->portable_id = 0;
+     //Put this at the end of all benchmarks to help the data collector
+    printf("\nEnd of benchmark\n");
+    sleep_ms(50);
     stopBenchmark();
+    //Put this at the end because picotool doesn't like connecting after main finishes
+    while(true);
 }
