@@ -27,14 +27,14 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350">
+      <configuration PROFILE_NAME="ARM" ENABLED="true" GENERATION_DIR="build-arm" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350 -DARCH=arm">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv">
+      <configuration PROFILE_NAME="RISC" ENABLED="true" GENERATION_DIR="build-risc" GENERATION_OPTIONS="-DPICO_PLATFORM=rp2350-riscv -DARCH=risc">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="PICO_SDK_PATH" value="$PROJECT_DIR$/../../pico-sdk" />
@@ -46,6 +46,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd11b5bd-4ce3-4c54-a98e-401dd901be33" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,26 +87,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;benchmark&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/robbie/Documents/Pico/thesis/bitcount&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/robbie/Documents/Pico/thesis/bitcount",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="CMake Application.Build">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="ARM" RUN_TARGET_PROJECT_NAME="bitcnts" RUN_TARGET_NAME="bitcnts_large_O0" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -156,8 +163,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.Build" />
       <item itemvalue="CMake Application.bitcnts_large_O0" />
+      <item itemvalue="CMake Application.Build" />
       <item itemvalue="CMake Application.bitcnts_large_O3" />
       <item itemvalue="CMake Application.bitcnts_small_O0" />
       <item itemvalue="CMake Application.bitcnts_small_O3" />
@@ -195,6 +202,7 @@
       <workItem from="1733193428760" duration="14000" />
       <workItem from="1743526398837" duration="4637000" />
       <workItem from="1744306359793" duration="165000" />
+      <workItem from="1744581087677" duration="1236000" />
     </task>
     <servers />
   </component>
