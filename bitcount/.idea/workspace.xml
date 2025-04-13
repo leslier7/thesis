@@ -47,6 +47,7 @@
     <list default="true" id="cd11b5bd-4ce3-4c54-a98e-401dd901be33" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../basicmath/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coremark/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +58,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RISC" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:ARM" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -202,7 +203,7 @@
       <workItem from="1733193428760" duration="14000" />
       <workItem from="1743526398837" duration="4637000" />
       <workItem from="1744306359793" duration="165000" />
-      <workItem from="1744581087677" duration="1236000" />
+      <workItem from="1744581087677" duration="2494000" />
     </task>
     <servers />
   </component>

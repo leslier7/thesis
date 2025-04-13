@@ -120,6 +120,7 @@ printf("ImagOut:\n");
     instructions2 = numberInstructions();
     stopPowerTesting();
 
+    printf("FFT Small results: \n");
     printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
     printf("Instructions executed: %llu\n", instructions2 - instructions1);
     printf("Clock cycles: %llu\n", cycles2 - cycles1);

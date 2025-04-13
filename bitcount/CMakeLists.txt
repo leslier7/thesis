@@ -69,7 +69,7 @@ add_executable(bitcnts_small_O0
         power_functions.c
         instruction_count.c
         )
-target_compile_options(bitcnts_small_O0 PRIVATE -O3)
+target_compile_options(bitcnts_small_O0 PRIVATE -O0)
 target_link_libraries(bitcnts_small_O0 pico_stdlib pico_bootsel_via_double_reset)
 pico_add_extra_outputs(bitcnts_small_O0)
 pico_enable_stdio_usb(bitcnts_small_O0 ${USB_ENABLE})
@@ -115,7 +115,7 @@ add_executable(bitcnts_large_O0
         power_functions.c
         instruction_count.c
 )
-target_compile_options(bitcnts_large_O0 PRIVATE -O3)
+target_compile_options(bitcnts_large_O0 PRIVATE -O0)
 target_link_libraries(bitcnts_large_O0 pico_stdlib pico_bootsel_via_double_reset)
 pico_add_extra_outputs(bitcnts_large_O0)
 pico_enable_stdio_usb(bitcnts_large_O0 ${USB_ENABLE})
