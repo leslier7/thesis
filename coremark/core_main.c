@@ -52,6 +52,14 @@ static ee_u16 state_known_crc[]  = { (ee_u16)0x5e47,
                                     (ee_u16)0xe5a4,
                                     (ee_u16)0x8e3a,
                                     (ee_u16)0x8d84 };
+
+ //Variables used to capture times
+    uint64_t instructions1, instructions2;
+    uint64_t tempCycles, prevTempCycles;
+    uint64_t cycles1, cycles2;
+    uint64_t time1, time2;
+    int overflows = 0;
+
 void *
 iterate(void *pres)
 {
@@ -70,6 +78,18 @@ iterate(void *pres)
         res->crc = crcu16(crc, res->crc);
         crc      = core_bench_list(res, -1);
         res->crc = crcu16(crc, res->crc);
+        
+        if (i % 100 == 0) {
+            printf("Hit iteration %i on iteration\n", i);
+            tempCycles = cycleCount();
+            printf("Cycle count on %i is %llu\n", i, tempCycles);
+        if (tempCycles < prevTempCycles) {
+            printf("Cycle count has overflowed\n");
+            overflows++;
+        }
+            prevTempCycles = tempCycles; // Update prevTempCycles for the next iteration
+        }
+        
         if (i == 0)
             res->crclist = res->crc;
     }
@@ -119,10 +139,7 @@ MAIN_RETURN_TYPE
 main(int argc, char *argv[])
 {
 #endif
-     //Variables used to capture times
-    uint64_t instructions1, instructions2;
-    uint64_t cycles1, cycles2;
-    uint64_t time1, time2;
+    
 
     // Set the system clock to 150 MHz
     //set_sys_clock_khz(150000, true);
@@ -450,7 +467,7 @@ for (i = 0; i < MULTITHREAD; i++)
     printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
     printf("Instructions executed: %llu\n", instructions2-instructions1);
     printf("Clock cycles: %llu\n", cycles2-cycles1);
-
+    printf("Overflows: %i", overflows);
     }
     if (total_errors > 0)
         ee_printf("Errors detected\n");
