@@ -26,6 +26,9 @@ Original Author: Shay Gal-on
 #include "power_functions.h"
 #include "instruction_count.h"
 
+#include "hardware/structs/m33.h"
+#include "hardware/regs/m33.h"
+
 /* Function: iterate
         Run the benchmark for a specified number of iterations.
 
@@ -55,10 +58,15 @@ static ee_u16 state_known_crc[]  = { (ee_u16)0x5e47,
 
  //Variables used to capture times
     uint64_t instructions1, instructions2;
-    uint64_t tempCycles, prevTempCycles;
     uint64_t cycles1, cycles2;
     uint64_t time1, time2;
-    int overflows = 0;
+    uint64_t tempCycles, prevTempCycles, tempLSU, prevTempLSU, tempCPI, prevTempCPI, tempEXC, prevTempEXC, tempSLEEP, prevTempSLEEP, tempFOLD, prevTempFOLD ;
+    int instruction_overflows = 0;
+    int lsu_overflows = 0;
+    int cpi_overflows = 0;
+    int exc_overflows = 0;
+    int sleep_overflows = 0;
+    int fold_overflows = 0;
 
 void *
 iterate(void *pres)
@@ -79,16 +87,42 @@ iterate(void *pres)
         crc      = core_bench_list(res, -1);
         res->crc = crcu16(crc, res->crc);
         
-        if (i % 100 == 0) {
-            printf("Hit iteration %i on iteration\n", i);
+        //if (i % 100 == 0) {
+            //printf("Hit iteration %i\n", i);
             tempCycles = cycleCount();
-            printf("Cycle count on %i is %llu\n", i, tempCycles);
+            tempLSU = m33_hw->dwt_lsucnt;
+            tempCPI = CPICNT_Val();
+            tempEXC = m33_hw->dwt_exccnt;
+            tempSLEEP = SLEEPCNT_Val();
+            tempFOLD = m33_hw->dwt_foldcnt;
+            //printf("Cycle count on %i is %llu\n", i, tempCycles);
+            //printf("LSU count on %i is %llu\n", i, tempLSU);
         if (tempCycles < prevTempCycles) {
-            printf("Cycle count has overflowed\n");
-            overflows++;
+            //printf("Cycle count has overflowed\n");
+            instruction_overflows++;
+        }
+            if (tempLSU < prevTempLSU) {
+            lsu_overflows++;
+        }
+            if (tempCPI < prevTempCPI) {
+            cpi_overflows++;
+        }
+            if (tempEXC < prevTempEXC) {
+            exc_overflows++;
+        }
+            if (tempSLEEP < prevTempSLEEP) {
+            sleep_overflows++;
+        }
+            if (tempFOLD < prevTempFOLD) {
+            fold_overflows++;
         }
             prevTempCycles = tempCycles; // Update prevTempCycles for the next iteration
-        }
+            prevTempLSU = tempLSU;
+            prevTempCPI = tempCPI;
+            prevTempEXC = tempEXC;
+            prevTempSLEEP = tempSLEEP;
+            prevTempFOLD = tempFOLD;
+        //}
         
         if (i == 0)
             res->crclist = res->crc;
@@ -467,7 +501,12 @@ for (i = 0; i < MULTITHREAD; i++)
     printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
     printf("Instructions executed: %llu\n", instructions2-instructions1);
     printf("Clock cycles: %llu\n", cycles2-cycles1);
-    printf("Overflows: %i", overflows);
+    printf("Instruction Overflows: %i\n", instruction_overflows);
+        printf("LSU Overflows: %i\n", lsu_overflows);
+        printf("CPI Overflows: %i\n", cpi_overflows);
+        printf("EXC Overflows: %i\n", exc_overflows);
+        printf("SLEEP Overflows: %i\n", sleep_overflows);
+        printf("FOLD Overflows: %i\n", fold_overflows);
     }
     if (total_errors > 0)
         ee_printf("Errors detected\n");

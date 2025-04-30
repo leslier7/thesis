@@ -14,6 +14,10 @@ void enableClockCount();
 uint64_t cycleCount();
 uint64_t numberInstructions();
 
+uint8_t CPICNT_Val();
+
+uint8_t SLEEPCNT_Val();
+
 #ifdef ARCH_ARM
 
 

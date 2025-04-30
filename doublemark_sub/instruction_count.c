@@ -47,6 +47,14 @@ inline uint64_t numberInstructions() { // number of instructions = CYCCNT - CPIC
     //return -1;
 }
 
+inline uint8_t CPICNT_Val() {
+    return DWT_CPICNT_VAL;
+}
+
+inline uint8_t SLEEPCNT_Val() {
+    return DWT_SLEEPCNT_VAL;
+}
+
 //Code for counting the processor cycles and instructions in RISC-V
 #elif ARCH_RISC
 #include "hardware/regs/rvcsr.h"
