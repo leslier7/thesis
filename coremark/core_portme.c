@@ -22,8 +22,14 @@ Original Author: Shay Gal-on
 #include "instruction_count.h"
 #include "power_functions.h"
 #include "hardware/structs/otp.h"
+#include "hardware/clocks.h"
 
 #define ITERATIONS 6000
+
+//Variables used to capture times
+uint64_t instructions1, instructions2;
+uint64_t cycles1, cycles2;
+uint64_t time1, time2;
 
 #if VALIDATION_RUN
 volatile ee_s32 seed1_volatile = 0x3415;
@@ -133,6 +139,15 @@ void
 portable_init(core_portable *p, int *argc, char *argv[])
 {
 
+
+
+    // Set the system clock to 150 MHz
+    //set_sys_clock_khz(150000, true);
+    uint32_t clock_speed = clock_get_hz(clk_sys);
+    stdio_init_all();
+    printf("Starting coremark\n");
+    printf("Clock speed: %lu MHz\n", clock_speed / 1000000);
+
     (void)argc; // prevent unused warning
     (void)argv; // prevent unused warning
 
@@ -160,6 +175,12 @@ portable_init(core_portable *p, int *argc, char *argv[])
     initPowerTesting();
     enableClockCount();
     startBenchmark();
+
+    start_time();
+    startPowerTesting();
+    time1 = time_us_64();
+    cycles1 = cycleCount();
+    instructions1 = numberInstructions();
 }
 /* Function : portable_fini
         Target specific final code
@@ -167,6 +188,16 @@ portable_init(core_portable *p, int *argc, char *argv[])
 void
 portable_fini(core_portable *p)
 {
+    time2 =time_us_64();
+    cycles2 = cycleCount();
+    instructions2 = numberInstructions();
+    stopPowerTesting();
+
+    printf("Coremark Results: \n");
+    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
+    printf("Instructions executed: %llu\n", instructions2-instructions1);
+    printf("Clock cycles: %llu\n", cycles2-cycles1);
+
     p->portable_id = 0;
      //Put this at the end of all benchmarks to help the data collector
     printf("\nEnd of benchmark\n");
