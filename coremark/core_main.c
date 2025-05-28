@@ -119,17 +119,6 @@ MAIN_RETURN_TYPE
 main(int argc, char *argv[])
 {
 #endif
-     //Variables used to capture times
-    uint64_t instructions1, instructions2;
-    uint64_t cycles1, cycles2;
-    uint64_t time1, time2;
-
-    // Set the system clock to 150 MHz
-    //set_sys_clock_khz(150000, true);
-    uint32_t clock_speed = clock_get_hz(clk_sys);
-    stdio_init_all();
-    printf("Starting coremark\n");
-    printf("Clock speed: %lu MHz\n", clock_speed / 1000000);
     ee_u16       i, j = 0, num_algorithms = 0;
     ee_s16       known_id = -1, total_errors = 0;
     ee_u16       seedcrc = 0;
@@ -277,11 +266,6 @@ for (i = 0; i < MULTITHREAD; i++)
         results[0].iterations *= 1 + 10 / divisor;
     }
     /* perform actual benchmark */
-    start_time();
-    startPowerTesting();
-    time1 = time_us_64();
-    cycles1 = cycleCount();
-    instructions1 = numberInstructions();
 #if (MULTITHREAD > 1)
     if (default_num_contexts > MULTITHREAD)
     {
@@ -300,10 +284,6 @@ for (i = 0; i < MULTITHREAD; i++)
 #else
     iterate(&results[0]);
 #endif
-    time2 =time_us_64();
-    cycles2 = cycleCount();
-    instructions2 = numberInstructions();
-    stopPowerTesting();
     stop_time();
     total_time = get_time();
     /* get a function of the input to report */
@@ -446,11 +426,6 @@ for (i = 0; i < MULTITHREAD; i++)
             ee_printf("\n");
         }
 #endif
-    printf("Coremark Results: \n");
-    printf("Time taken: %.4f ms\n", (float)(time2 - time1) / 1000);
-    printf("Instructions executed: %llu\n", instructions2-instructions1);
-    printf("Clock cycles: %llu\n", cycles2-cycles1);
-
     }
     if (total_errors > 0)
         ee_printf("Errors detected\n");
