@@ -4,7 +4,7 @@ cmake-*
 build
 -DPICO_PLATFORM=rp2350-riscv/
 build-*
-launch.json
+#launch.json
 MiBench
 results
 
