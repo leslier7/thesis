@@ -1,4 +1,4 @@
-.vscode
+#.vscode
 cmake-*
 .DS_Store
 build
