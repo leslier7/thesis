@@ -23,9 +23,9 @@ To build the benchmarks, you will need to set up the Pico SDK and the RISC-V too
 - Navigate to the benchmark directory that you want to build, e.g., `cd thesis/floatmark`
 - Make a build directory and navigate into it: `mkdir build-arm && cd build-arm` or `mkdir build-riscv && cd build-riscv`
 - Run CMake to configure the build:
-  - For Arm: `cmake .. -DPICO_PLATFORM=rp2350 -DARCH=arm`
-  - For RISC-V: `cmake .. -DPICO_PLATFORM=rp2350-riscv -DARCH=risc`
-- Then build the benchmark with: `make`
+  - For Arm: <pre> ```cmake .. -DPICO_PLATFORM=rp2350 -DARCH=arm ``` </pre>
+  - For RISC-V: <pre> ```cmake .. -DPICO_PLATFORM=rp2350-riscv -DARCH=risc ``` </pre>
+- Then build the benchmark with: <pre> ```make``` </pre>
 - Do this for each benchmark you want to build.
 
 ### Running the Benchmarks
@@ -44,7 +44,7 @@ To build the benchmarks, you will need to set up the Pico SDK and the RISC-V too
 
 ### Running the UART Script
 - Connect the USB-C port on the testing board to your computer.
-- Run the script: `python UartScript.py file_name.csv port_name`
+- Run the script: <pre> ```python UartScript.py file_name.csv port_name``` </pre>
   - Replace `file_name.csv` with the desired output file name (it can be a path).
   - Replace `port_name` with the serial port name (e.g., `/dev/ttyUSB0` on Linux).
 - Plug the Micro-USB cable into the Pico 2 board to power it on.
@@ -56,7 +56,7 @@ To build the benchmarks, you will need to set up the Pico SDK and the RISC-V too
 
 ### Running the Power Measurement Script
 - Make sure that you have exported the data from the PPK2 software to a CSV file following the instructions in section 4.3.2.4 of the thesis.
-- Run the script: `python ChargeScript.py folder_path`
+- Run the script: <pre> ```python ChargeScript.py folder_path``` </pre>
   - Replace `folder_path` with the top level folder containing the CSV files exported from the PPK2 software. It will process all CSV files in all subfolders and put the outputs of each folder in an `Outputs` folder.
 
 ## Instructions for the PCB Design Files
